@@ -28,10 +28,15 @@ body{
 .renderedMessage{
   font-size: 20px;
   color: #25344F;
- /* font-family: 'Inria Serif';*/
 }
 header{
   background-color: #25344F;
+}
+header h1{
+  color: #FFFFFF;
+  font-family: 'Inria Serif';
+  font-weight: bold;
+  font-size: 36px;
 }
 .createTC{
   background-color: #6F4D38;
@@ -45,6 +50,11 @@ header{
 }
 footer{
   background-color: #25344F;
+  font-size: 16px;
+}
+footer p{
+  color: #FFFFFF;
+  font-family: 'Inria Serif';
 }
 ul {
   list-style-type: none;
@@ -60,6 +70,7 @@ li {
 li a {
   display: block;
   color: #D5B893;
+  font-size: 16px;
   text-align: center;
   padding: 16px;
   text-decoration: none;
