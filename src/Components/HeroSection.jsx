@@ -1,12 +1,12 @@
 function HeroSection(){
     return(
         <>
-    <div>
+    <div className="heroText">
         <h1></h1>
         <br />
         <p></p>
     </div>
-    <div>
+    <div className="heroImage">
         <img src="" alt="" />
     </div>
     </>

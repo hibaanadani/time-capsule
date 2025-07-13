@@ -4,7 +4,7 @@ function MessageCard(){
     let messages=""
     return(
         <div className='messageCard'>
-            <Message/>
+            <Message message="Enter message here" name="Sender" />
         </div>
     );
 } 

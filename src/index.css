@@ -87,3 +87,9 @@ button{
   text-align: center;
   align-items: center;
 }
+.senderName{
+  color: #632024;
+  font-family: 'Inria Serif';
+  font-weight: bold;
+  font-size: 24px;
+}
