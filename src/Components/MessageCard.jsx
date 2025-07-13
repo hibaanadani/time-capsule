@@ -1,6 +1,6 @@
 import Message from './Message.jsx';
 
-function MessagesSection(){
+function MessageCard(){
     let messages=""
     return(
         <div>
@@ -8,4 +8,4 @@ function MessagesSection(){
         </div>
     );
 } 
-export default MessagesSection
+export default MessageCard
