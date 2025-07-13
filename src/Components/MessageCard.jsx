@@ -3,7 +3,7 @@ import Message from './Message.jsx';
 function MessageCard(){
     let messages=""
     return(
-        <div>
+        <div className='messageCard'>
             <Message/>
         </div>
     );
