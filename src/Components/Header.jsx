@@ -9,7 +9,7 @@ function Header(){
                     <li><a href="#">About</a></li>
                     <li><a href="#">Pricing</a></li>
                     <button>Log In</button>
-                    <button>Create Your Time Capsule</button>
+                    <button className="createTC">Create Your Time Capsule</button>
                 </ul>
             </nav>
         </header>

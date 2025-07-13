@@ -1,7 +1,7 @@
 function Message(){
-    let text ="Messages"
+    let text ="Write Your Letter Here"
     return(
-     <p>{text} </p> 
+     <p className="renderedMessage">{text} </p> 
     );
 }
 export default Message
