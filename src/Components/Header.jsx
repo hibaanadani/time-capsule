@@ -1,3 +1,4 @@
+import Button from "./Button.jsx"
 function Header(){
     return(
         <header>
@@ -8,6 +9,7 @@ function Header(){
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Pricing</a></li>
+                    <Button/>
                     <button>Log In</button>
                     <button className="createTC">Create Your Time Capsule</button>
                 </ul>
