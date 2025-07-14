@@ -1,4 +1,5 @@
-import Button from "./Button.jsx"
+import Button from "./Shared/Button/Button.jsx"
+
 function Header(){
     return(
         <header>
