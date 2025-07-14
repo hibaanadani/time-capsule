@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
 
-const Input = ({name, hint, required, onChangeListener }) =>{
+const Input = ({username, hint, required, onChangeListener }) =>{
     return(
         <input 
         type="text"
-        name={name}
+        username={username}
         placeholder={hint}
         className="primary-input"
         required={required}
