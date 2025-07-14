@@ -94,3 +94,10 @@ button{
   font-weight: bold;
   font-size: 24px;
 }
+
+.welcome-message{
+  font-family: 'Inria Serif';
+  font-weight: bold;
+  font-size: 62px;
+  color: #617891;
+}
