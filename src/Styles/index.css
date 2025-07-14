@@ -41,16 +41,7 @@ header h1{
   font-weight: bold;
   font-size: 36px;
 }
-.createTC{
-  background-color: #6F4D38;
-  border: 1px solid #D5B893;
-  color: #D5B893;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 10px;
-  text-align: center;
-}
+
 footer{
   background-color: #25344F;
   font-size: 16px;
