@@ -101,3 +101,9 @@ button{
   font-size: 62px;
   color: #617891;
 }
+.login-prompt{
+  font-family: 'Inria Serif';
+  font-weight: bold;
+  font-size: 50px;
+  color: #617891;
+}
