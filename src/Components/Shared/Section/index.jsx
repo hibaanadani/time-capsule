@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import Button from '../Button/';
 
-const Section = ({ title, description, buttonText, onButtonClick, buttonType = "notPrimary", image , imageLeft= false}) => {
+const Section = ({ title, description, buttonText, onChangeListener, buttonType = "notPrimary", image , imageLeft= false}) => {
   return (
     <div  className={`section-container ${imageLeft ? 'image-left' : ''}`}>
       <div className="text-content">
@@ -11,7 +11,7 @@ const Section = ({ title, description, buttonText, onButtonClick, buttonType = "
        <p className="section-description">{description}</p>
           <Button
             text={buttonText}
-            onClickListener={onButtonClick}
+            onChange={onChangeListener}
             buttonType={buttonType}
           />
         </div>
