@@ -1,7 +1,26 @@
-import React from "react";
-import "./style.css"
+import React, {useState} from "react";
+import "./style.css";
+import LoginForm from "../../Components/Authntication/LoginForm";
+import SignUpForm from "../../Components/Authntication/SignUpForm";
+
 
 const Auth = () => {
-    return <div>Auth</div>
+     const [isLogin, setIsLogin] = useState(true);
+
+  const switchForm = () => {
+    setIsLogin(!isLogin);
+  };
+
+  return (
+    <div className="auth-page">
+      <div className="auth-box">
+        {isLogin ? (
+          <LoginForm toggle={switchForm} />
+        ) : (
+          <SignUpForm toggle={switchForm} />
+        )}
+      </div>
+    </div>
+  );
 };
 export default Auth;
