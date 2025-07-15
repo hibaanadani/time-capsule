@@ -1,0 +1,15 @@
+br{
+    width: 195px;
+    height: 10px;
+}
+h1{
+    color: #617891;
+    font-family: 'Inria Serif', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 62px;
+}
+p{
+    color: #25344F;
+    font-family: 'Inria Serif', Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
