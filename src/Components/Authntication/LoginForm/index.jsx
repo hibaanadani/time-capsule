@@ -10,35 +10,9 @@ const LoginForm = ({ toggle}) =>{
 
     const navigate = useNavigate();
 
-    useEffect(() =>{
-       console.log("assign username") ,[username]});
-
-       return(
-        <>
-        <h1 className="auth-title"> Log In</h1>
-        <Input
-        username={"username"}
-        hint={"johnDoe"}
-        onChangeListener={(e) =>{
-            setUsername(e.target.value);
-        }}
-        />
-        <Input
-        name={"password"}
-        hint={"johnP@ssw0rd"}
-        onChangeListener={(e) =>{
-            setUsername(e.target.value);
-        }}
-        />
-        <p className="auth-switch">
-            Don't have an account? 
-            <span className="auth-toggle" onClick={toggle}>
-                {" "}Sign Up
-            </span>
-        </p>
-        <Button
-            text={"Log In"}
-            onClickListener={async () =>{
+    const handleLogin = async() => {
+        try{
+            async () =>{
                 const res= await axios.post("loginurl", {
                 username: username,
                 pass:password,
@@ -49,7 +23,41 @@ const LoginForm = ({ toggle}) =>{
             }else{
                 alert("Login failed, please check credentials");
             }
+        }
+    }
+        catch (e){  
+            console.error("Login error:", e);
+            alert("an error occurred! Please try again.")
+        }
+    };
+
+       return(
+        <>
+        <h1 className="auth-title"> Log In</h1>
+        <Input
+        name={"username"}
+        hint={"johnDoe"}
+        onChangeListener={(e) =>{
+            setUsername(e.target.value);
         }}
+        />
+        <Input
+        name={"password"}
+        hint={"johnP@ssw0rd"}
+        type={"password"}
+        onChangeListener={(e) =>{
+            setPassword(e.target.value);
+        }}
+        />
+        <p className="auth-switch">
+            Don't have an account? 
+            <span className="auth-toggle" onClick={toggle}>
+                {" "}Sign Up
+            </span>
+        </p>
+        <Button
+            text={"Log In"}
+            onClickListener={handleLogin}
         />
         </>
        );

@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types'
+import React from "react";
+import './style.css';
 
 function Message(props){
     return(
