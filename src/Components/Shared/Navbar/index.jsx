@@ -1,13 +1,12 @@
 import React from 'react';
 import './style.css';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const location = useLocation();
 
   const navLinks = [
-    { name: 'Home', path: '../../../Pages/Home' },
+    { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Pricing', path: '/pricing' },
   ];

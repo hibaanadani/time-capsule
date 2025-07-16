@@ -1,21 +1,24 @@
-import Button from "./Shared/Button/Button.jsx"
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../Button';
+import Navbar from '../../Navbar';
+import './style.css';
 
-function Header(){
+const Header=()=>{
+    const navigate=useNavigate();
+
     return(
         <header>
-            <img src="" alt="" />
-            <h1>MessageToSelf</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <Button/>
-                    <button>Log In</button>
-                    <button className="createTC">Create Your Time Capsule</button>
-                </ul>
-            </nav>
+            <div className='logo-section'>
+            <img src="public\images\logo.webp" alt="logo" className='logo-img'/>
+            <h1 className='header-title'>MessageToSelf</h1>
+            </div>
+            <div className='nav-section'>
+            <Navbar/>
+            <Button text="Log In" buttonType="notPrimary" onClickListener={(navigate('/auth'))}/>
+            <Button text="Create Your Time Capsule" buttonType="primary" onClickListener={(navigate('/'))}/>
+            </div>
         </header>
     )
 }
-export default Header
+export default Header;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css"
 
-const Button = ({ text, onClickListener, buttonType = "notPrimary" }) => { 
+const Button = ({ text,buttonType = "notPrimary" , onClickListener }) => { 
   const getButtonClassName = () => {
     switch (buttonType) {
       case "primary":
