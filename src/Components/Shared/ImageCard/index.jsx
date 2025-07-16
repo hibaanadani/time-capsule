@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.css';
 
-const ImageCard = ({ imageSrc, imageAlt = 'Capsule Image', onClick }) => {
+const ImageCard = ({ imageSrc, imageAlt = 'Capsule Image', onClickListener }) => {
   return (
-    <div className="image-card" onClick={onClick}>
+    <div className="image-card" onClick={onClickListener}>
       <img src={imageSrc} alt={imageAlt} className="image-card-img" />
     </div>
   );
