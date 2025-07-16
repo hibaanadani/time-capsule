@@ -36,6 +36,17 @@ const MessageForm =()=>{
     function handleEmojiSelect(emojiObject) {
       setMood(emojiObject.emoji); 
     }
+
+    const handleClear = () => {
+        setContent('');
+        setRevealDate('');
+        setPrivacy('private');
+        setMood('');
+        setImageFile(null);
+        setAudioFile(null);
+        setShowEmojiPicker(false);
+  };
+
     return(
         <div className="message-form">
             <h2 className="create-msge-title">Send Your Message Forward</h2>
