@@ -19,7 +19,7 @@ const Auth = () => {
         ) : (
           <SignUpForm toggle={switchForm} />
         )}
-        <div><img src="" alt="" className="authImage"/></div>
+        <div><img src="../../../public/images/stamp.png "alt="stamp" className="authImage"/></div>
       </div>
     </div>
   );
