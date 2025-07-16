@@ -19,7 +19,7 @@ const LoginForm = ({ toggle}) =>{
             });
 
             if(true){
-                navigate("/dashboard")
+                navigate("/dashboard");
             }else{
                 alert("Login failed, please check credentials");
             }

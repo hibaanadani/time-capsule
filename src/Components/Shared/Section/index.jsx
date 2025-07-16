@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import Button from '../Button/';
+import Button from '../Button';
 
 const Section = ({ title, description, buttonText, onChangeListener, buttonType = "notPrimary", image , imageLeft= false}) => {
   return (
