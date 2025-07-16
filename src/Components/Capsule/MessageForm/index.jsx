@@ -4,6 +4,7 @@ import Button from "../../Shared/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import EmojiPicker from 'emoji-picker-react';
 
 const MessageForm =()=>{
     const navigate= useNavigate();
@@ -12,8 +13,8 @@ const MessageForm =()=>{
     const [revealdate,setRevealDate] =useState('');
     const [privacy,setPrivacy] =useState('');
     const [mood,setMood] =useState('');
-    const [imageattachment,setImageAttachmnet] =useState('');
-    const [videoattachment,setVideoAttachment] =useState('');
+    const [imageattachment,setImageAttachmnet] =useState(null);
+    const [audioattachment,setAudioAttachment] =useState(null);
 
     const postMessage = async() =>{
         try{
@@ -32,14 +33,20 @@ const MessageForm =()=>{
             console.error('An error occured while creating message');
         }
     }
-
+    function handleEmojiSelect(emojiObject) {
+      setMood(emojiObject.emoji); 
+    }
     return(
         <div className="message-form">
             <h2 className="create-msge-title">Send Your Message Forward</h2>
-
             <textarea className="msge-textarea" value={content} onChange={(e.target.value)} rows={5} cols={60}>Write your letter here</textarea>
-
+            <div className="input-form">
+                <input type="file" className="image-attachment" accept="image/*" />
+                <input type="file" className="audio-attachment" accept="audio/*" />
+                <EmojiPicker className="emoji-picker" onEmojiClick={handleEmojiSelect} />
+            </div>
             <h3 className="senderName"> {props.name}</h3>
+            <Button text={Submit} buttonType="authB" onClickListener={postMessage} />
         </div>
     );
 };
