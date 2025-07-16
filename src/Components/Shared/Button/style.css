@@ -18,6 +18,7 @@
   font-size: 16px;
   padding: 10px;
   text-align: center;
+  align-items: center;
 }
 .authB{
   background-color: #25344F;
@@ -28,4 +29,5 @@
   font-size: 16px;
   padding: 10px;
   text-align: center;
+  align-items: center;
 }
