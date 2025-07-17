@@ -16,6 +16,16 @@ const MessageForm =()=>{
     const [imageattachment,setImageAttachmnet] =useState(null);
     const [audioattachment,setAudioAttachment] =useState(null);
 
+        const handleClear = () => {
+        setContent('');
+        setRevealDate('');
+        setPrivacy('');
+        setMood('');
+        setImageFile(null);
+        setAudioFile(null);
+        setShowEmojiPicker(false);
+  };
+
     const postMessage = async() =>{
         try{
             const response = await axios.post("loginurl", {
@@ -26,6 +36,7 @@ const MessageForm =()=>{
         });   
             if(true){
                 navigate("/dashboard");
+                handleClear;
             }else{
                 alert("message creation failed");
             }}
@@ -37,15 +48,7 @@ const MessageForm =()=>{
       setMood(emojiObject.emoji); 
     }
 
-    const handleClear = () => {
-        setContent('');
-        setRevealDate('');
-        setPrivacy('private');
-        setMood('');
-        setImageFile(null);
-        setAudioFile(null);
-        setShowEmojiPicker(false);
-  };
+
 
     return(
         <div className="message-form">
