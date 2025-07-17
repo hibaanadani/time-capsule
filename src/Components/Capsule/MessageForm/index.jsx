@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import EmojiPicker from 'emoji-picker-react';
+import { Paperclip } from 'lucide-react';
 
 const MessageForm =()=>{
     const navigate= useNavigate();
@@ -16,7 +17,7 @@ const MessageForm =()=>{
     const [imageattachment,setImageAttachmnet] =useState(null);
     const [audioattachment,setAudioAttachment] =useState(null);
 
-        const handleClear = () => {
+    const handleClear = () => {
         setContent('');
         setRevealDate('');
         setPrivacy('');
@@ -48,12 +49,11 @@ const MessageForm =()=>{
       setMood(emojiObject.emoji); 
     }
 
-
-
     return(
         <div className="message-form">
             <h2 className="create-msge-title">Send Your Message Forward</h2>
             <textarea className="msge-textarea" value={content} onChange={(e.target.value)} rows={5} cols={60}>Write your letter here</textarea>
+            <Paperclip size={24} className="paper-clip-icon"/>
             <div className="input-form">
                 <input type="file" className="image-attachment" accept="image/*" />
                 <input type="file" className="audio-attachment" accept="audio/*" />
