@@ -16,7 +16,7 @@ const Header=()=>{
             <div className='nav-section'>
             <Navbar/>
             <Button text="Log In" buttonType="notPrimary" onClickListener={() => navigate('/auth')}/>
-            <Button text="Create Your Time Capsule" buttonType="primary" onClickListener={() => navigate('/create-message')}/>
+            <Button text="Create Your Time Capsule" buttonType="primary" onClickListener={() => navigate('/create-capsule')}/>
             </div>
         </header>
     )
