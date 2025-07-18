@@ -15,8 +15,7 @@ const SignUpForm = ({ toggle }) =>{
 
     const handleLogin = async() => {
         try{
-            async () =>{
-                const res= await axios.post("loginurl", {
+            const res= await axios.post("loginurl", {
                 firstName:firstName,
                 lastname: lastname,
                 username: username,
@@ -30,7 +29,6 @@ const SignUpForm = ({ toggle }) =>{
                 alert("Signup failed, please check inputs");
             }
         }
-    }
         catch (e){  
             console.error("Login error:", e);
             alert("an error occurred! Please try again.")
@@ -42,11 +40,11 @@ const SignUpForm = ({ toggle }) =>{
     <>
     <h1 className="auth-title">Sign Up</h1>
 
-    <Input name={"firstName"} hint={"John"}/>
-    <Input name={"lastName"} hint={"Doe"}/>
-    <Input name={"username"} hint={"johnDoe"}/>
-    <Input name={"email"} hint={"johnDoe@email.com"}/>
-    <Input name={"password"} hint={"johnP@ssw0rd"}/>
+    <Input name={"firstName"} hint={"John"} value={firstName}/>
+    <Input name={"lastName"} hint={"Doe"} value={lastname}/>
+    <Input name={"username"} hint={"johnDoe"} value={username}/>
+    <Input name={"email"} hint={"johnDoe@email.com"} value={email}/>
+    <Input name={"password"} hint={"johnP@ssw0rd"} value={password}/>
     
     <p className="auth-switch">
         Already have an account?
@@ -55,7 +53,7 @@ const SignUpForm = ({ toggle }) =>{
         </span>
     </p>
 
-    <Button text={"Sign Up"} onClickListener={handleLogin}/>
+    <Button text={"Sign Up"} onClickListener={handleLogin} buttonType={"authB"}/>
     </>
     );
 };

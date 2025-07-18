@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { useNavigate} from 'react-router-dom';
+import { link} from 'react-router-dom';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -16,10 +16,8 @@ const Navbar = () => {
       <ul className="navbar-links">
         {navLinks.map((link) => (
           <li 
-            key={link.name} 
-            onClick={() => navigate(link.path)}
-          >
-            {link.name}
+            key={link.name}>
+              <Link to={link.path}>{link.name}</Link>
           </li>
         ))}
       </ul>

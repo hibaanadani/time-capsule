@@ -7,12 +7,11 @@ import axios from "axios";
 import EmojiPicker from 'emoji-picker-react';
 import { Paperclip } from 'lucide-react';
 
+
 const MessageForm =()=>{
     const navigate= useNavigate();
 
     const [content,setContent] =useState('');
-    const [revealdate,setRevealDate] =useState('');
-    const [privacy,setPrivacy] =useState('');
     const [mood,setMood] =useState('');
     const [imageattachment,setImageAttachmnet] =useState(null);
     const [audioattachment,setAudioAttachment] =useState(null);

@@ -1,27 +1,23 @@
 *{
   margin: 0px;
   padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.imageCard{
-  width: 345px;
-  height: 345px;
-  border: 1px solid #6F4D38;
-  box-shadow: 0 2px 5px #6f4d385d;
-  display: inline-block;
+h2 {
+  color: #25344F; 
+  font-family: 'Inria Serif'; 
+  font-weight: bold;
+  font-size: 62px; 
+}
+h3 {
+  color: #632024; 
+  font-family: 'Inria Serif'; 
+  font-weight: bold;
+  font-size: 24px; 
 }
 
-.messageCard{
-  width: 565px;
-  height: auto;
-  max-height: 750px;
-  border: 1px solid #6F4D38;
-  box-shadow: 0 2px 5px #6f4d385d;
-  padding: 20px;
-  margin: 10px;
-  text-align: center;
-  max-width: 345px;
-  display: inline-block;
-}
+
+
 .renderedImage{
   width: 100%;
   max-width:345px;
@@ -32,25 +28,8 @@
   font-size: 20px;
   color: #25344F;
 }
-header{
-  background-color: #25344F;
-}
-header h1{
-  color: #FFFFFF;
-  font-family: 'Inria Serif';
-  font-weight: bold;
-  font-size: 36px;
-}
 
-footer{
-  background-color: #25344F;
-  font-size: 16px;
-}
-footer p{
-  color: #FFFFFF;
-  font-family: 'Inria Serif';
-  font-weight: 400;
-}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -71,17 +50,6 @@ li a {
   text-decoration: none;
 }
 
-button{
-  background-color: #D5B893;
-  border: 1px solid #6F4D38;
-  color: #6F4D38;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 10px;
-  text-align: center;
-  align-items: center;
-}
 .senderName{
   color: #632024;
   font-family: 'Inria Serif';

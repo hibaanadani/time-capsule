@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../Shared/Button";
 import Input from "../../Shared/Input";
 import axios from "axios";
@@ -6,14 +6,13 @@ import {useNavigate} from "react-router-dom";
 
 const LoginForm = ({ toggle}) =>{
     const [username, setUsername] = useState();
-    const [password, setPassword] =useState();
+    const [password, setPassword] = useState();
 
     const navigate = useNavigate();
 
     const handleLogin = async() => {
         try{
-            async () =>{
-                const res= await axios.post("loginurl", {
+            const res= await axios.post("loginurl", {
                 username: username,
                 pass:password,
             });
@@ -24,19 +23,19 @@ const LoginForm = ({ toggle}) =>{
                 alert("Login failed, please check credentials");
             }
         }
-    }
         catch (e){  
             console.error("Login error:", e);
             alert("an error occurred! Please try again.")
         }
     };
 
-       return(
+    return(
         <>
-        <h1 className="auth-title"> Log In</h1>
+        <h2 className="auth-title"> Log In</h2>
         <Input
         name={"username"}
         hint={"johnDoe"}
+        value={username}
         onChangeListener={(e) =>{
             setUsername(e.target.value);
         }}
@@ -45,6 +44,7 @@ const LoginForm = ({ toggle}) =>{
         name={"password"}
         hint={"johnP@ssw0rd"}
         type={"password"}
+        value={password}
         onChangeListener={(e) =>{
             setPassword(e.target.value);
         }}
@@ -58,6 +58,7 @@ const LoginForm = ({ toggle}) =>{
         <Button
             text={"Log In"}
             onClickListener={handleLogin}
+            buttonType={"authB"}
         />
         </>
        );

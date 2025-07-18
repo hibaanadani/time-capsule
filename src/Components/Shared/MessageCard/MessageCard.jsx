@@ -1,10 +1,20 @@
-import Message from './Message.jsx';
+import OpenedMessage from "../../Capsule/OpenedMessage";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import './style.css';
 
-function MessageCard(){
+const MessageCard=({message})=>{
+    const navigate= useNavigate();
+
+    const viewMessage=()=>{
+        if(message){
+            navigate('')
+        }
+    }
+
     let messages=""
     return(
         <div className='messageCard'>
-            <Message message="Enter message here" name="Sender" />
         </div>
     );
 } 
