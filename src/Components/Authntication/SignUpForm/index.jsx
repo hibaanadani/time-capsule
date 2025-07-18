@@ -3,6 +3,7 @@ import Input from "../../Shared/Input";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {toast} from "react-toastify";
 
 const SignUpForm = ({ toggle }) =>{
     const [firstName, setFirstname] = useState();
@@ -14,8 +15,11 @@ const SignUpForm = ({ toggle }) =>{
     const navigate = useNavigate();
 
     const handleLogin = async() => {
-        try{
-            const res= await axios.post("loginurl", {
+        if (!firstName || !lastname || !username || !email || !password) {
+            toast.warn("Please fill in all fields to sign up.");
+            return;
+        }try{
+            const res= await axios.post("http://localhost:8000/api/auth/register", {
                 firstName:firstName,
                 lastname: lastname,
                 username: username,
@@ -23,14 +27,17 @@ const SignUpForm = ({ toggle }) =>{
                 password:password,
             });
 
-            if(true){
-                navigate("/dashboard")
+            if(res.status === 200 ){
+                toast.success("Signup successful! Welcome aboard.");
+                setTimeout(() => {
+                    navigate("/dashboard"); 
+                }, 1000); 
             }else{
-                alert("Signup failed, please check inputs");
+                toast.error("Signup failed, please check inputs");
             }
         }
         catch (e){  
-            console.error("Login error:", e);
+            console.error("Login error:", e.response.data.message);
             alert("an error occurred! Please try again.")
         }
     };
@@ -38,13 +45,13 @@ const SignUpForm = ({ toggle }) =>{
 
     return(
     <>
-    <h1 className="auth-title">Sign Up</h1>
+    <h2 className="auth-title">Sign Up</h2>
 
-    <Input name={"firstName"} hint={"John"} value={firstName}/>
-    <Input name={"lastName"} hint={"Doe"} value={lastname}/>
-    <Input name={"username"} hint={"johnDoe"} value={username}/>
-    <Input name={"email"} hint={"johnDoe@email.com"} value={email}/>
-    <Input name={"password"} hint={"johnP@ssw0rd"} value={password}/>
+    <Input name={"firstName"} hint={"John"} value={firstName} onChangeListener={(e)=>setFirstname(e.target.value)} required={true}/>
+    <Input name={"lastName"} hint={"Doe"} value={lastname} onChangeListener={(e)=>setLastname(e.target.value)} required={true}/>
+    <Input name={"username"} hint={"johnDoe"} value={username} onChangeListener={(e)=>setUsername(e.target.value)} required={true}/>
+    <Input name={"email"} hint={"johnDoe@email.com"} value={email} onChangeListener={(e)=>setEmail(e.target.value)} required={true}/>
+    <Input name={"password"} hint={"johnP@ssw0rd"} value={password} onChangeListener={(e)=>setPassword(e.target.value)} required={true}/>
     
     <p className="auth-switch">
         Already have an account?

@@ -3,6 +3,7 @@ import Button from "../../Shared/Button";
 import Input from "../../Shared/Input";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 const LoginForm = ({ toggle}) =>{
     const [username, setUsername] = useState();
@@ -11,20 +12,27 @@ const LoginForm = ({ toggle}) =>{
     const navigate = useNavigate();
 
     const handleLogin = async() => {
+        if (!username || !password) {
+            toast.warn("Please enter both username and password.");
+            return; 
+        }
         try{
-            const res= await axios.post("loginurl", {
+            const res= await axios.post("http://localhost:8000/api/auth/login", {
                 username: username,
-                pass:password,
+                password:password,
             });
 
-            if(true){
-                navigate("/dashboard");
+            if(res.status === 200 ){
+                toast.success("Login successful!");
+                setTimeout(() => {
+                    navigate("/dashboard");
+                }, 1000); 
             }else{
-                alert("Login failed, please check credentials");
+                toast.error("Login failed, please check credentials");
             }
         }
         catch (e){  
-            console.error("Login error:", e);
+            console.error("Login error:", e.response.data.message);
             alert("an error occurred! Please try again.")
         }
     };
@@ -39,6 +47,7 @@ const LoginForm = ({ toggle}) =>{
         onChangeListener={(e) =>{
             setUsername(e.target.value);
         }}
+        required={true}
         />
         <Input
         name={"password"}
@@ -48,6 +57,7 @@ const LoginForm = ({ toggle}) =>{
         onChangeListener={(e) =>{
             setPassword(e.target.value);
         }}
+        required={true}
         />
         <p className="auth-switch">
             Don't have an account? 

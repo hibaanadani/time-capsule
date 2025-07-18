@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { useNavigate, Link, Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from '../../Components/Shared/Header';
 import Footer from '../../Components/Shared/Footer';
 import Button from '../../Components/Shared/Button';

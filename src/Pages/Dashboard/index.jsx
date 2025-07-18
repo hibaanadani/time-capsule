@@ -1,15 +1,28 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Shared/Header";
+import Footer from "../../Components/Shared/Footer";
+import MessageCard from "../../Components/Shared/MessageCard";
+import Section from "../../Components/Shared/Section";
+import './style.css';
 
 const Dashboard = () => {
-  const location = useLocation();
-
-  const name = location.state?.user?.name || "Guest";
+  const navigate = useNavigate();
 
   return (
     <div className="dash-page">
-      <h2 className="dashboard-heading">Hello {name}!</h2>
-
+      <Header />
+      <div>
+        <Section title="Hello !"
+          description="Check your opened messages here!!"
+          buttonText="Send Note"
+          onClickListener={()=>navigate('create-capsule')}
+          buttonType="notPrimary"
+          image='../'
+          imageLeft={true}
+        />
+        
+      </div>
       <p className="dash-subtext">
        Check your opened messages here!!
       </p>
