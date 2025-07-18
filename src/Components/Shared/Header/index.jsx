@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../Button';
 import Navbar from '../Navbar';
 import './style.css';
+import {toast} from 'react-toastify';
 
 const Header=()=>{
     const navigate=useNavigate();

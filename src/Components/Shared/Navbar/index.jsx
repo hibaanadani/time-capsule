@@ -1,10 +1,8 @@
 import React from 'react';
 import './style.css';
-import { link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const Navbar = () => {
-    const navigate = useNavigate();
-
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
