@@ -8,16 +8,19 @@ import { BrowserRouter ,Routes, Route } from "react-router-dom";
 import Auth from "./Pages/Authentication";
 import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard";
-
+import createCapsule from "./Pages/CreateCapsule";
+import readCapsule from "./Pages/ReadCapsule";
 
 const App = () =>{
 return (
   <BrowserRouter>
-  <Routes>
+   <Routes>
     <Route path="/authentication" element={<Auth/>}/>
-    <Route path="/home" element={<Home/>}/>
+    <Route path="/" element={<Home/>}/>
     <Route path="/dashboard" element={<Dashboard/>}/>
-  </Routes>
+    <Route path="/create-capsule" element={<createCapsule/>}/>
+    <Route path="/read-capsule" element={<readCapsule/>}/>
+   </Routes>
   </BrowserRouter>
 )
 };
