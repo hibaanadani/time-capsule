@@ -1,21 +1,12 @@
-import OpenedMessage from "../../Capsule/OpenedMessage";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
 import './style.css';
 
-const MessageCard=({message})=>{
-    const navigate= useNavigate();
-
-    const viewMessage=()=>{
-        if(message){
-            navigate('')
-        }
-    }
-
-    let messages=""
-    return(
-        <div className='messageCard'>
+const MessageCard = ({ snippet, onClickListener }) => {
+    return (
+        <div className="message-card-container" onClick={onClickListener}>
+            <p className="message-card-snippet">{snippet}</p>
         </div>
     );
-} 
-export default MessageCard
+};
+
+export default MessageCard;
