@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./style.css";
-import LoginForm from "../../Components/Authntication/LoginForm";
-import SignUpForm from "../../Components/Authntication/SignUpForm";
+import LoginForm from "../../Components/Authentication/LoginForm";
+import SignUpForm from "../../Components/Authentication/SignUpForm";
 
 
 const Auth = () => {
