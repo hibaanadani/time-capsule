@@ -8,7 +8,7 @@
 
 .nav-link-item {
     display: block;
-    color: var(--text-light);
+    color: var(--text-link-nav);
     font-size: 1rem;
     text-align: center;
     padding: 0.5rem 0.8rem;
@@ -19,8 +19,7 @@
 
 .nav-link-item:hover,
 .nav-link-item.active {
-    background-color: var(--primary-medium-blue);
-    color: var(--accent-color);
+    color: var(--color-brown);
 }
 
 @media (max-width: 768px) {

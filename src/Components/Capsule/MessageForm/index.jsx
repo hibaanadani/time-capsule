@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import EmojiPicker from 'emoji-picker-react';
 import { Paperclip } from 'lucide-react';
+import {toast} from "react-toastify";
 
 
 const MessageForm =()=>{
@@ -28,20 +29,28 @@ const MessageForm =()=>{
 
     const postMessage = async() =>{
         try{
-            const response = await axios.post("loginurl", {
+            const response = await axios.post("http://localhost:8000/api/messages/", {
                 content: content,
                 revealdate:revealdate,
                 privacy:privacy,
                 mood:mood,
+                imageattachment:imageattachment,
+                audioattachment:audioattachment,
         });   
-            if(true){
-                navigate("/dashboard");
+        
+            if(res.status === 200 ){
+                toast.success("Login successful!");
+                setTimeout(() => {
+                    navigate("/dashboard");
+                }, 1000); 
                 handleClear;
             }else{
-                alert("message creation failed");
-            }}
+                toast.error("message creation failed");
+            }
+        }
         catch(e){
-            console.error('An error occured while creating message');
+            console.error("Login error:", e.response.data.message);
+            toast.error("an error occurred! Please try again.")
         }
     }
     function handleEmojiSelect(emojiObject) {

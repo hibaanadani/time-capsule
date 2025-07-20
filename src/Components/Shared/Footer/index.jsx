@@ -4,7 +4,7 @@ import './style.css';
 
 function Footer() {
     return (
-        <footer className="main-footer">
+        <footer>
             <div className="footer-content">
                 <Navbar />
             </div>

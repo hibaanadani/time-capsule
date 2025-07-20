@@ -1,14 +1,11 @@
-/* Components/Shared/Footer/style.css */
-
-.main-footer {
-    background-color: var(--primary-dark-blue);
-    color: var(--text-light);
+footer {
+    background-color: var(--background-header-footer);
+    color: var(--text-link-nav);
     padding: 1.5rem 2rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 
@@ -16,33 +13,8 @@
     margin-bottom: 1rem;
 }
 
-.main-footer .navbar-container {
-    background: none;
-    padding: 0;
-}
-
-.main-footer .navbar-links {
-    flex-direction: row;
-    gap: 1.5rem;
-}
-
-.main-footer .nav-link-item {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.main-footer .nav-link-item:hover {
-    color: var(--accent-color);
-}
-
 .footer-copyright p {
     margin: 0;
     font-size: 0.85rem;
     color: #D5B893;
-}
-
-@media (max-width: 600px) {
-    .main-footer .navbar-links {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
 }

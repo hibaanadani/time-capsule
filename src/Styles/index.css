@@ -1,71 +1,33 @@
-*{
-  margin: 0px;
-  padding: 0px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-h2 {
-  color: #25344F; 
-  font-family: 'Inria Serif'; 
-  font-weight: bold;
-  font-size: 62px; 
-}
-h3 {
-  color: #632024; 
-  font-family: 'Inria Serif'; 
-  font-weight: bold;
-  font-size: 24px; 
-}
+@import './colors.css';
 
-
-
-.renderedImage{
-  width: 100%;
-  max-width:345px;
-  height: 100%;
-  max-height: 345px;
-}
-.renderedMessage{
-  font-size: 20px;
-  color: #25344F;
-}
-
-
-ul {
-  list-style-type: none;
+html{
   margin: 0;
   padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: #D5B893;
   font-size: 16px;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background-color: var(--color-white);
+  color: var(--color-dark-blue);
 }
 
-.senderName{
-  color: #632024;
-  font-family: 'Inria Serif';
+h1,h2,h3{
+  font-family: 'Inria Serif',serif;
+  line-height: 1.2;
+  margin-top: 1em;
   font-weight: bold;
-  font-size: 24px;
 }
-
-.welcome-message{
-  font-family: 'Inria Serif';
-  font-weight: bold;
+h2{
+  color: var(--text-paragraph-default);
+  font-size: 36px;
+}
+h3{
+  color:var(--color-red);
+  font-size: 34px;
+}
+h1{
+  color:var(--text-section-h1);
   font-size: 62px;
-  color: #617891;
 }
-.login-prompt{
-  font-family: 'Inria Serif';
-  font-weight: bold;
-  font-size: 50px;
-  color: #617891;
+p{
+  color: var(--text-paragraph-default);
 }
