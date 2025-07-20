@@ -15,7 +15,7 @@ const Button = ({ text,buttonType = "notPrimary" , onClickListener }) => {
   };
   const buttonClassName = getButtonClassName();
     return(
-        <button className={buttonClassName} onClick={onClickListener}>{text}</button>
+        <button className={`base-button ${buttonClassName}`} onClick={onClickListener}>{text}</button>
     );
 }
 export default Button;

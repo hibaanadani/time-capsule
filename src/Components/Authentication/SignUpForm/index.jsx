@@ -1,3 +1,4 @@
+import React from "react";
 import Button from "../../Shared/Button";
 import Input from "../../Shared/Input";
 import { useState } from "react";
@@ -6,15 +7,15 @@ import { useNavigate } from "react-router-dom";
 import {toast} from "react-toastify";
 
 const SignUpForm = ({ toggle }) =>{
-    const [firstName, setFirstname] = useState();
-    const [lastname, setLastname] =useState();
-    const [username, setUsername] =useState();
-    const [email, setEmail] =useState();
-    const [password, setPassword] =useState();
+    const [firstName, setFirstname] = useState('');
+    const [lastname, setLastname] =useState('');
+    const [username, setUsername] =useState('');
+    const [email, setEmail] =useState('');
+    const [password, setPassword] =useState('');
 
     const navigate = useNavigate();
 
-    const handleLogin = async() => {
+    const handleSignup = async() => {
         if (!firstName || !lastname || !username || !email || !password) {
             toast.warn("Please fill in all fields to sign up.");
             return;
@@ -36,10 +37,11 @@ const SignUpForm = ({ toggle }) =>{
                 toast.error("Signup failed, please check inputs");
             }
         }
-        catch (e){  
-            console.error("Login error:", e.response.data.message);
-            toast.error("an error occurred! Please try again.")
-        }
+            catch (e){  
+                const errorMessage=  e.response?.data?.message
+                console.error("Login error:",errorMessage,e);
+                toast.error("an error occurred! Please try again.")
+            }    
     };
 
 
@@ -60,7 +62,7 @@ const SignUpForm = ({ toggle }) =>{
         </span>
     </p>
 
-    <Button text={"Sign Up"} onClickListener={handleLogin} buttonType={"authB"}/>
+    <Button text={"Sign Up"} onClickListener={handleSignup} buttonType={"authB"}/>
     </>
     );
 };

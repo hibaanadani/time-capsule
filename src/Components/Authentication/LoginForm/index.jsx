@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useState } from "react";
 import Button from "../../Shared/Button";
 import Input from "../../Shared/Input";
 import axios from "axios";
@@ -6,8 +7,8 @@ import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 
 const LoginForm = ({ toggle}) =>{
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
 
@@ -32,7 +33,8 @@ const LoginForm = ({ toggle}) =>{
             }
         }
         catch (e){  
-            console.error("Login error:", e.response.data.message);
+            const errorMessage=  e.response?.data?.message
+            console.error("Login error:",errorMessage,e);
             toast.error("an error occurred! Please try again.")
         }
     };

@@ -31,3 +31,8 @@ h1{
 p{
   color: var(--text-paragraph-default);
 }
+@media (max-width: 400px) {
+    h2 {
+        font-size: 40px;
+    }
+  }

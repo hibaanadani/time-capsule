@@ -4,7 +4,7 @@ import "./Styles/index.css";
 
 import React from "react";
 import { BrowserRouter ,Routes, Route } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
 import Auth from "./Pages/Authentication";
 import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard";
@@ -14,6 +14,8 @@ import MessageInfo from "./Pages/MessageInfo";
 const App = () =>{
 return (
   <BrowserRouter>
+  <ToastContainer position="top-middle" autoClose={3000} hideProgressBar={true}
+    newestOnTop={true} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />  
    <Routes>
     <Route path="/authentication" element={<Auth/>}/>
     <Route path="/" element={<Home/>}/>
@@ -21,6 +23,7 @@ return (
     <Route path="/create-capsule" element={<CreateCapsule/>}/>
     <Route path="/read-capsule" element={<ReadCapsule/>}/>
     <Route path="/message-info" element={<MessageInfo/>}/>
+    <Route path="*" element={<NotFoundPage />} />
    </Routes>
   </BrowserRouter>
 )
