@@ -20,6 +20,7 @@
 .nav-link-item:hover,
 .nav-link-item.active {
     color: var(--color-brown);
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {

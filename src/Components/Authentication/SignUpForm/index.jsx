@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import {toast} from "react-toastify";
 
 const SignUpForm = ({ toggle }) =>{
-    const [firstName, setFirstname] = useState('');
-    const [lastname, setLastname] =useState('');
+    const [firstname, setFirstName] = useState('');
+    const [lastname, setLastName] =useState('');
     const [username, setUsername] =useState('');
     const [email, setEmail] =useState('');
     const [password, setPassword] =useState('');
@@ -16,12 +16,12 @@ const SignUpForm = ({ toggle }) =>{
     const navigate = useNavigate();
 
     const handleSignup = async() => {
-        if (!firstName || !lastname || !username || !email || !password) {
+        if (!firstname || !lastname || !username || !email || !password) {
             toast.warn("Please fill in all fields to sign up.");
             return;
         }try{
             const res= await axios.post("http://localhost:8000/api/register", {
-                firstName:firstName,
+                firstname:firstname,
                 lastname: lastname,
                 username: username,
                 email: email,
@@ -49,8 +49,8 @@ const SignUpForm = ({ toggle }) =>{
     <>
     <h2 className="auth-title">Sign Up</h2>
 
-    <Input name={"firstName"} hint={"John"} value={firstName} onChangeListener={(e)=>setFirstname(e.target.value)} required={true}/>
-    <Input name={"lastName"} hint={"Doe"} value={lastname} onChangeListener={(e)=>setLastname(e.target.value)} required={true}/>
+    <Input name={"firstName"} hint={"John"} value={firstname} onChangeListener={(e)=>setFirstName(e.target.value)} required={true}/>
+    <Input name={"lastName"} hint={"Doe"} value={lastname} onChangeListener={(e)=>setLastName(e.target.value)} required={true}/>
     <Input name={"username"} hint={"johnDoe"} value={username} onChangeListener={(e)=>setUsername(e.target.value)} required={true}/>
     <Input name={"email"} hint={"johnDoe@email.com"} value={email} onChangeListener={(e)=>setEmail(e.target.value)} required={true}/>
     <Input name={"password"} hint={"johnP@ssw0rd"} value={password} onChangeListener={(e)=>setPassword(e.target.value)} required={true}/>
