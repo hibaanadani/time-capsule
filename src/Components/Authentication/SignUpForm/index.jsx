@@ -38,7 +38,7 @@ const SignUpForm = ({ toggle }) =>{
         }
         catch (e){  
             console.error("Login error:", e.response.data.message);
-            alert("an error occurred! Please try again.")
+            toast.error("an error occurred! Please try again.")
         }
     };
 

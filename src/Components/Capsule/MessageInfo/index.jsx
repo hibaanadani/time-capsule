@@ -20,21 +20,27 @@ const MessageInfo=()=>{
 
     const handleSubmit = async() =>{
         try{
-            const response = await axios.put('',{
+            const response = await axios.put('http://localhost:8000/api/add_update_message/',{
                 revealdate:revealdate,
                 privacy:privacy,
                 surpriseMode: surpriseMode ? 1:0,
                 gpsLocation:gpsLocation,
                 ipAddress:ipAddress,
             })
-            if(true){
-                navigate('/dashboard');
-            }else{
-                console.log('Failed to send message')
-            }
-        }catch(e){
-            console.error('Error finalizing message:',e);
-        }
+           if(res.status === 200 ){
+                        toast.success("Login successful!");
+                        setTimeout(() => {
+                            navigate("/dashboard");
+                        }, 1000); 
+                        handleClear;
+                    }else{
+                        toast.error("message creation failed");
+                    }
+                }
+                catch(e){
+                    console.error("Login error:", e.response.data.message);
+                    toast.error("an error occurred! Please try again.")
+                }
     };
     
 

@@ -8,9 +8,9 @@ import { BrowserRouter ,Routes, Route } from "react-router-dom";
 import Auth from "./Pages/Authentication";
 import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard";
-import createCapsule from "./Pages/CreateCapsule";
-import readCapsule from "./Pages/ReadCapsule";
-
+import CreateCapsule from "./Pages/CreateCapsule";
+import ReadCapsule from "./Pages/ReadCapsule";
+import MessageInfo from "./Pages/MessageInfo"; 
 const App = () =>{
 return (
   <BrowserRouter>
@@ -18,8 +18,9 @@ return (
     <Route path="/authentication" element={<Auth/>}/>
     <Route path="/" element={<Home/>}/>
     <Route path="/dashboard" element={<Dashboard/>}/>
-    <Route path="/create-capsule" element={<createCapsule/>}/>
-    <Route path="/read-capsule" element={<readCapsule/>}/>
+    <Route path="/create-capsule" element={<CreateCapsule/>}/>
+    <Route path="/read-capsule" element={<ReadCapsule/>}/>
+    <Route path="/message-info" element={<MessageInfo/>}/>
    </Routes>
   </BrowserRouter>
 )

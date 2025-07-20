@@ -1,5 +1,4 @@
 import React from "react";
-import './style.css';
 import Button from "../../Shared/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -16,23 +15,20 @@ const MessageForm =()=>{
     const [mood,setMood] =useState('');
     const [imageattachment,setImageAttachmnet] =useState(null);
     const [audioattachment,setAudioAttachment] =useState(null);
+    const [emojipicker, setEmojiPicker]=useState('');
 
     const handleClear = () => {
         setContent('');
-        setRevealDate('');
-        setPrivacy('');
         setMood('');
-        setImageFile(null);
-        setAudioFile(null);
-        setShowEmojiPicker(false);
+        setImageAttachmnet(null);
+        setAudioAttachment(null);
+        setShowEmojiPicker(null);
   };
 
     const postMessage = async() =>{
         try{
-            const response = await axios.post("http://localhost:8000/api/messages/", {
+            const response = await axios.post("http://localhost:8000/api/add_update_message/", {
                 content: content,
-                revealdate:revealdate,
-                privacy:privacy,
                 mood:mood,
                 imageattachment:imageattachment,
                 audioattachment:audioattachment,
@@ -41,7 +37,7 @@ const MessageForm =()=>{
             if(res.status === 200 ){
                 toast.success("Login successful!");
                 setTimeout(() => {
-                    navigate("/dashboard");
+                    navigate("/message-info");
                 }, 1000); 
                 handleClear;
             }else{
@@ -60,7 +56,7 @@ const MessageForm =()=>{
     return(
         <div className="message-form">
             <h2 className="create-msge-title">Send Your Message Forward</h2>
-            <textarea className="msge-textarea" value={content} onChange={(e.target.value)} rows={5} cols={60}>Write your letter here</textarea>
+            <textarea className="msge-textarea" value={content} onChange={(e) => setContent(e.target.value)} rows={5} cols={60}>Write your letter here</textarea>
             <Paperclip size={24} className="paper-clip-icon"/>
             <div className="input-form">
                 <input type="file" className="image-attachment" accept="image/*" />
