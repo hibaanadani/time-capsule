@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Shared/Header";
 import Footer from "../../Components/Shared/Footer";
-import MessageCard from "../../Components/Shared/MessageCard";
+import MessageCard from "../../Components/Shared/MessageCard/MessageCard.jsx";
 import Section from "../../Components/Shared/Section";
 import './style.css';
 

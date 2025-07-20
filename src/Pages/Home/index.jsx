@@ -3,10 +3,9 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 import Header from '../../Components/Shared/Header';
 import Footer from '../../Components/Shared/Footer';
-import Button from '../../Components/Shared/Button';
 import Section from '../../Components/Shared/Section';
 import ImageCard from '../../Components/Shared/ImageCard';
-import MessageCard from '../../Components/Shared/MessageCard';
+import MessageCard from '../../Components/Shared/MessageCard/MessageCard.jsx';
 
 const Home = () => {
   const navigate = useNavigate();

@@ -1,8 +1,9 @@
 @import './colors.css';
-
-html{
+*{
   margin: 0;
   padding: 0;
+}
+html{
   font-size: 16px;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../Shared/Button";
-import Input from "../../Shared/Input";
+import Input from "../../Shared/Input/Index.jsx";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

@@ -2,7 +2,6 @@ import "./Styles/utilities.css";
 import "./Styles/colors.css";
 import "./Styles/index.css";
 
-import React from "react";
 import { BrowserRouter ,Routes, Route } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import Auth from "./Pages/Authentication";
@@ -11,6 +10,8 @@ import Dashboard from "./Pages/Dashboard";
 import CreateCapsule from "./Pages/CreateCapsule";
 import ReadCapsule from "./Pages/ReadCapsule";
 import MessageInfo from "./Pages/MessageInfo"; 
+
+
 const App = () =>{
 return (
   <BrowserRouter>
@@ -23,7 +24,6 @@ return (
     <Route path="/create-capsule" element={<CreateCapsule/>}/>
     <Route path="/read-capsule" element={<ReadCapsule/>}/>
     <Route path="/message-info" element={<MessageInfo/>}/>
-    <Route path="*" element={<NotFoundPage />} />
    </Routes>
   </BrowserRouter>
 )
