@@ -18,7 +18,7 @@ const Dashboard = () => {
           buttonText="Send Note"
           onClickListener={()=>navigate('create-capsule')}
           buttonType="notPrimary"
-          image='../'
+          image='/images/images.jpg'
           imageLeft={true}
         />
         

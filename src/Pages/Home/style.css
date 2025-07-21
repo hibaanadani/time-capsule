@@ -1,3 +1,8 @@
 .image-cards-section{
     background-color: var(--color-tan);
+    padding: 4em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

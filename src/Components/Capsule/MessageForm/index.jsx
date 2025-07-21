@@ -27,11 +27,11 @@ const MessageForm =()=>{
 
     const postMessage = async() =>{
         try{
-            const response = await axios.post("http://localhost:8000/api/add_update_message/", {
-                content: content,
+            const res = await axios.post("http://localhost:8000/api/add_update_message/", {
+                message: content,
                 mood:mood,
-                imageattachment:imageattachment,
-                audioattachment:audioattachment,
+                image:imageattachment,
+                audio:audioattachment,
         });   
         
             if(res.status === 200 ){

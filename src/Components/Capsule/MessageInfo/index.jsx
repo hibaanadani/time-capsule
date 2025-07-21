@@ -15,17 +15,18 @@ const MessageInfo=()=>{
     const [revealdate,setRevealDate] =useState('');
     const [privacy,setPrivacy] =useState('');
     const [surprisemode, setSurpriseMode] =useState(false);
+    const [color,setColor] =useState('');
     const [gpsLocation, setGpsLocation] = useState('');
     const [ipAddress, setIpAddress] = useState('');
 
     const handleSubmit = async() =>{
         try{
-            const response = await axios.put('http://localhost:8000/api/add_update_message/',{
+            const res = await axios.put('http://localhost:8000/api/add_update_message/',{
                 reveal_date:revealdate,
                 privacy:privacy,
                 surprise_mode: surprisemode ? 1:0,
-                gpsLocation:gpsLocation,
-                ipAddress:ipAddress,
+                location:gpsLocation,
+                ipaddress:ipAddress,
             })
            if(res.status === 200 ){
                         toast.success("Login successful!");
@@ -48,8 +49,9 @@ const MessageInfo=()=>{
         <div className="message-info-container">
             <h2 className="message-info-title"> Message Delivery Details</h2>
             <Input name="revealDate" hint="ex:26/12/2026" type="date" value={revealdate} onChangeListener={(e) => setRevealDate()} required={true} />
-            <Input name="privacy" hint="private" type="date" value={revealdate} onChangeListener={(e) => setPrivacy()} required={true} />
-            <Input name="surprisemode" hint="" type="date" value={revealdate} onChangeListener={(e) => setPrivacy()} required={true} />
+            <Input name="privacy" hint="private" type="checkbox" value={privacy} onChangeListener={(e) => setPrivacy()} required={true} />
+            <Input name="surprisemode" hint="" type="radio" value={surprisemode} onChangeListener={(e) => setSurpriseMode()} required={true} />
+            <Input name="color" hint="Color:Yellow" type="color" value={color} onChangeListener={(e) => setolor()} required={true} />
             <Button text="Send Message" onClickListener={handleSubmit} buttonType="authB"/>
         </div>
     );

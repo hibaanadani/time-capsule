@@ -1,11 +1,13 @@
 .section-container{
-    padding: 50px 100px;
+    padding: 4em 6em;
     display: flex;
+    gap: 2em;
 }
 .text-content{
     display: flex;
     flex-direction: column;
     gap: 2em; 
+    max-width: 670px;
 }
 .notPrimary{
     max-width: 200px;
