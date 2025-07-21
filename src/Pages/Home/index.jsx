@@ -19,7 +19,7 @@ const Home = () => {
           buttonText="Capture Moment"
           onClickListener={()=>navigate('create-capsule')}
           buttonType="notPrimary"
-          image='../'
+          image="../../../public/images/header.png"
           imageLeft={true}
         />
           <div className="image-cards-section">

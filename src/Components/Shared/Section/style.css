@@ -1,3 +1,7 @@
+.section-container{
+    padding: 20px 50px;
+    display: flex;
+}
 hr{
     margin: 20px 0px;
     width: 200px;
