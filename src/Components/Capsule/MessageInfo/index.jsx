@@ -14,16 +14,16 @@ const MessageInfo=()=>{
 
     const [revealdate,setRevealDate] =useState('');
     const [privacy,setPrivacy] =useState('');
-    const [surpriseMode, setSurpriseMode] =useState(false);
+    const [surprisemode, setSurpriseMode] =useState(false);
     const [gpsLocation, setGpsLocation] = useState('');
     const [ipAddress, setIpAddress] = useState('');
 
     const handleSubmit = async() =>{
         try{
             const response = await axios.put('http://localhost:8000/api/add_update_message/',{
-                revealdate:revealdate,
+                reveal_date:revealdate,
                 privacy:privacy,
-                surpriseMode: surpriseMode ? 1:0,
+                surprise_mode: surprisemode ? 1:0,
                 gpsLocation:gpsLocation,
                 ipAddress:ipAddress,
             })
@@ -49,7 +49,7 @@ const MessageInfo=()=>{
             <h2 className="message-info-title"> Message Delivery Details</h2>
             <Input name="revealDate" hint="ex:26/12/2026" type="date" value={revealdate} onChangeListener={(e) => setRevealDate()} required={true} />
             <Input name="privacy" hint="private" type="date" value={revealdate} onChangeListener={(e) => setPrivacy()} required={true} />
-            <Input name="surpriseMode" hint="" type="date" value={revealdate} onChangeListener={(e) => setPrivacy()} required={true} />
+            <Input name="surprisemode" hint="" type="date" value={revealdate} onChangeListener={(e) => setPrivacy()} required={true} />
             <Button text="Send Message" onClickListener={handleSubmit} buttonType="authB"/>
         </div>
     );

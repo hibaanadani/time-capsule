@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../Shared/Button";
-import Input from "../../Shared/Input/Index.jsx";
+import Input from "../../Shared/Input/Index";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -21,8 +21,8 @@ const SignUpForm = ({ toggle }) =>{
             return;
         }try{
             const res= await axios.post("http://localhost:8000/api/register", {
-                firstname:firstname,
-                lastname: lastname,
+                first_name:firstname,
+                last_name: lastname,
                 username: username,
                 email: email,
                 password:password,
@@ -49,8 +49,8 @@ const SignUpForm = ({ toggle }) =>{
     <>
     <h2 className="auth-title">Sign Up</h2>
 
-    <Input name={"firstName"} hint={"John"} value={firstname} onChangeListener={(e)=>setFirstName(e.target.value)} required={true}/>
-    <Input name={"lastName"} hint={"Doe"} value={lastname} onChangeListener={(e)=>setLastName(e.target.value)} required={true}/>
+    <Input name={"firstname"} hint={"John"} value={firstname} onChangeListener={(e)=>setFirstName(e.target.value)} required={true}/>
+    <Input name={"lastname"} hint={"Doe"} value={lastname} onChangeListener={(e)=>setLastName(e.target.value)} required={true}/>
     <Input name={"username"} hint={"johnDoe"} value={username} onChangeListener={(e)=>setUsername(e.target.value)} required={true}/>
     <Input name={"email"} hint={"johnDoe@email.com"} value={email} onChangeListener={(e)=>setEmail(e.target.value)} required={true}/>
     <Input name={"password"} hint={"johnP@ssw0rd"} value={password} onChangeListener={(e)=>setPassword(e.target.value)} required={true}/>

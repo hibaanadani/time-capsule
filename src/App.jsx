@@ -15,10 +15,10 @@ import MessageInfo from "./Pages/MessageInfo";
 const App = () =>{
 return (
   <BrowserRouter>
-  <ToastContainer position="top-middle" autoClose={3000} hideProgressBar={true}
-    newestOnTop={true} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />  
+  <ToastContainer position="top-middle" autoClose={1000} hideProgressBar={true}
+    newestOnTop={true} closeOnClick rtl={true} pauseOnFocusLoss draggable pauseOnHover />  
    <Routes>
-    <Route path="/authentication" element={<Auth/>}/>
+    <Route path="/auth" element={<Auth/>}/>
     <Route path="/" element={<Home/>}/>
     <Route path="/dashboard" element={<Dashboard/>}/>
     <Route path="/create-capsule" element={<CreateCapsule/>}/>
