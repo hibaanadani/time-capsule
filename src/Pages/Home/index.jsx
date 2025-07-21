@@ -19,7 +19,7 @@ const Home = () => {
           buttonText="Capture Moment"
           onClickListener={()=>navigate('create-capsule')}
           buttonType="notPrimary"
-          image="../../../public/images/header.png"
+          image="/images/header.png"
           imageLeft={true}
         />
           <div className="image-cards-section">
@@ -34,7 +34,7 @@ const Home = () => {
           buttonText="Send Note"
           onClickListener={()=>navigate('create-capsule')}
           buttonType="notPrimary"
-          image='../'
+          image="/images/lettersection.jpg"
           imageLeft={false}
         />
           <div className="message-cards-section">

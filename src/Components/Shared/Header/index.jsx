@@ -10,7 +10,7 @@ const Header=()=>{
     return(
         <header>
             <div className='logo-section'>
-            <img src="/images/logo.webp" alt="logo" className='logo-img'/>
+            <img src="images/logo.jpg" alt="logo" className='logo-img'/>
             <h1 className='header-title'>MessageToSelf</h1>
             </div>
             <div className='nav-section'>

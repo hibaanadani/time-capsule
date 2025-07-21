@@ -1,6 +1,6 @@
 header {
     background-color: var(--background-header-footer);
-    padding: 1rem 2rem;
+    padding: 1rem 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,7 +14,7 @@ header {
 
 .logo-img {
     height: 85px;
-    width: au60pxto;
+    width: 60px;
     object-fit: contain;
 }
 
@@ -30,7 +30,7 @@ header {
 .nav-section {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1em;
 }
 
 @media (max-width: 900px) {

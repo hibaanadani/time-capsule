@@ -41,7 +41,7 @@
     border: 1px solid var(--button-auth-border); 
 }
 .authB:hover {
-    background-color: #25344F; 
+    background-color:var(--button-auth-bg);
     color: var(--color-brown);
     border-color: var(--color-brown); 
 }
