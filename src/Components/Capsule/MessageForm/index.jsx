@@ -8,7 +8,7 @@ import { Paperclip } from 'lucide-react';
 import {toast} from "react-toastify";
 
 
-const MessageForm =()=>{
+const MessageForm =({toggle})=>{
     const navigate= useNavigate();
 
     const [content,setContent] =useState('');
@@ -22,7 +22,8 @@ const MessageForm =()=>{
         setMood('');
         setImageAttachmnet(null);
         setAudioAttachment(null);
-        setEmojiPicker(null);
+        setEmojiPicker('');
+        localStorage.removeItem('currentMessageDraft'); 
   };
 
     const postMessage = async() =>{
@@ -64,7 +65,7 @@ const MessageForm =()=>{
                 <EmojiPicker className="emoji-picker" onEmojiClick={handleEmojiSelect} />
             </div>
             <h3 className="senderName"> name</h3>
-            <Button text={"Submit"} buttonType="authB" onClickListener={postMessage} />
+            <Button text={"Finalize"} buttonType="authB" onClickListener={toggle} />
         </div>
     );
 };

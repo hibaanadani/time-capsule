@@ -9,7 +9,6 @@ import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard";
 import CreateCapsule from "./Pages/CreateCapsule";
 import ReadCapsule from "./Pages/ReadCapsule";
-import MessageInfo from "./Pages/MessageInfo"; 
 
 
 const App = () =>{
@@ -23,7 +22,7 @@ return (
     <Route path="/dashboard" element={<Dashboard/>}/>
     <Route path="/create-capsule" element={<CreateCapsule/>}/>
     <Route path="/read-capsule" element={<ReadCapsule/>}/>
-    <Route path="/message-info" element={<MessageInfo/>}/>
+    {/* <Route path="/message-info" element={<CapsuleInfo/>}/> */}
    </Routes>
   </BrowserRouter>
 )

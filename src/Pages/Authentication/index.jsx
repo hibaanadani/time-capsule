@@ -3,9 +3,8 @@ import "./style.css";
 import LoginForm from "../../Components/Authentication/LoginForm";
 import SignUpForm from "../../Components/Authentication/SignUpForm";
 
-
 const Auth = () => {
-     const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true);
 
   const switchForm = () => {
     setIsLogin(!isLogin);
