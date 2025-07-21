@@ -22,7 +22,7 @@ const MessageForm =()=>{
         setMood('');
         setImageAttachmnet(null);
         setAudioAttachment(null);
-        setShowEmojiPicker(null);
+        setEmojiPicker(null);
   };
 
     const postMessage = async() =>{
@@ -39,7 +39,7 @@ const MessageForm =()=>{
                 setTimeout(() => {
                     navigate("/message-info");
                 }, 1000); 
-                handleClear;
+                handleClear();
             }else{
                 toast.error("message creation failed");
             }
@@ -63,8 +63,8 @@ const MessageForm =()=>{
                 <input type="file" className="audio-attachment" accept="audio/*" />
                 <EmojiPicker className="emoji-picker" onEmojiClick={handleEmojiSelect} />
             </div>
-            <h3 className="senderName"> {props.name}</h3>
-            <Button text={Submit} buttonType="authB" onClickListener={postMessage} />
+            <h3 className="senderName"> name</h3>
+            <Button text={"Submit"} buttonType="authB" onClickListener={postMessage} />
         </div>
     );
 };

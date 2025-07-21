@@ -19,7 +19,9 @@
     flex-direction: column;
     align-items: center;
     max-width: 500px;
-    width: 90%;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
 }
 
 .auth-title {
@@ -31,20 +33,23 @@
     text-align: center;
 }
 
-.authImage {
-    max-width: 345px;
-    height: 345px;
-    margin-top: 2rem;
-    object-fit: contain;
-    width: 100%;
+.authImage-container { 
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+    z-index: 2;
 }
-img{
-    width: 100%;
-    height: 100%;
+.authImage{
+     max-width: 345px;
+    height: 345px;
+    object-fit: contain;
+    width: 100%; 
 }
 span{
     cursor: pointer;
 }
+
 @media (max-width: 600px) {
     .auth-box {
         padding: 2rem 1.5rem;
