@@ -49,11 +49,11 @@ const SignUpForm = ({ toggle }) =>{
     <>
     <h2 className="auth-title">Sign Up</h2>
 
-    <Input name={"firstname"} hint={"John"} value={firstname} onChangeListener={(e)=>setFirstName(e.target.value)} required={true}/>
-    <Input name={"lastname"} hint={"Doe"} value={lastname} onChangeListener={(e)=>setLastName(e.target.value)} required={true}/>
-    <Input name={"username"} hint={"johnDoe"} value={username} onChangeListener={(e)=>setUsername(e.target.value)} required={true}/>
-    <Input name={"email"} hint={"johnDoe@email.com"} value={email} onChangeListener={(e)=>setEmail(e.target.value)} required={true}/>
-    <Input name={"password"} hint={"johnP@ssw0rd"} value={password} onChangeListener={(e)=>setPassword(e.target.value)} required={true}/>
+    <Input name={"firstname"} hint={"Firstname: John"} value={firstname} onChangeListener={(e)=>setFirstName(e.target.value)} required={true}/>
+    <Input name={"lastname"} hint={"Lastname: Doe"} value={lastname} onChangeListener={(e)=>setLastName(e.target.value)} required={true}/>
+    <Input name={"username"} hint={"Username: johnDoe"} value={username} onChangeListener={(e)=>setUsername(e.target.value)} required={true}/>
+    <Input type="email" name={"email"} hint={"Email: johnDoe@email.com"} value={email} onChangeListener={(e)=>setEmail(e.target.value)} required={true}/>
+    <Input type="password" name={"password"} hint={"Password: johnP@ssw0rd"} value={password} onChangeListener={(e)=>setPassword(e.target.value)} required={true}/>
     
     <p className="auth-switch">
         Already have an account?

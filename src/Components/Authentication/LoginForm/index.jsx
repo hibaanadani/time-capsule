@@ -44,7 +44,7 @@ const LoginForm = ({ toggle}) =>{
         <h2 className="auth-title"> Log In</h2>
         <Input
         name={"username"}
-        hint={"johnDoe"}
+        hint={"Username: johnDoe"}
         value={username}
         onChangeListener={(e) =>{
             setUsername(e.target.value);
@@ -53,7 +53,7 @@ const LoginForm = ({ toggle}) =>{
         />
         <Input
         name={"password"}
-        hint={"johnP@ssw0rd"}
+        hint={"Password: johnP@ssw0rd"}
         type={"password"}
         value={password}
         onChangeListener={(e) =>{
