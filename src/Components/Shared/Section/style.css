@@ -1,6 +1,8 @@
-br{
-    width: 195px;
-    height: 10px;
+hr{
+    margin: 20px 0px;
+    width: 200px;
+    border: 5px solid var(--color-red);
+    border-radius: 10px;
 }
 h1{
     color: #617891;

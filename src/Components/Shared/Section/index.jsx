@@ -7,7 +7,7 @@ const Section = ({ title, description, buttonText, onClickListener, buttonType =
     <div  className={`section-container ${imageLeft ? 'image-left' : ''}`}>
       <div className="text-content">
         <h1 className="section-title">{title}</h1>
-        <br className="underline" />
+        <hr className="underline" />
        <p className="section-description">{description}</p>
           <Button
             text={buttonText}

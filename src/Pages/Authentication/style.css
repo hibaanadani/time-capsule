@@ -5,19 +5,19 @@
     min-height: 100vh;
     width: 100vw;
     background-image: url('../../../public/images/messageBackground.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: fixed;
+    background-size: 100% 100% !important;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:100% 100%;
+    background-size:cover;
 }
 
 .auth-box {
-    background-color: var(--color-white);
-    padding: 3rem 4rem;
+    background-color: transparent;
+    padding: 1rem 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
     max-width: 500px;
     width: 90%;
 }
