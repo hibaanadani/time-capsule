@@ -35,6 +35,14 @@ img{
     height: 440px;
     object-fit: cover;
 }
+
+.section-container.image-left .text-content {
+    order: 2;
+}
+
+.section-container.image-left .image-container {
+    order: 1; 
+}
 @media (max-width: 600px) {
 .section-container{
     flex-direction: column;

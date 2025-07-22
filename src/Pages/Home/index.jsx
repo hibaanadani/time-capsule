@@ -20,7 +20,6 @@ const Home = () => {
           onClickListener={()=>navigate('create-capsule')}
           buttonType="notPrimary"
           image="/images/header.png"
-          imageLeft={true}
         />
           <div className="image-cards-section">
             <h2>Creating a Long Lasting Memory</h2>
@@ -35,7 +34,7 @@ const Home = () => {
           onClickListener={()=>navigate('create-capsule')}
           buttonType="notPrimary"
           image="/images/lettersection.jpg"
-          imageLeft={false}
+          imageLeft={true}
         />
           <div className="message-cards-section">
             <h2>Top Interacted With Messages</h2>

@@ -38,14 +38,14 @@ const MessageForm = () => {
 
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/users/${userId}`, {
+                const res = await axios.get(`http://localhost:8000/api/users/${userId}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
 
-                if (response.status === 200) {
-                    setUsername(response.data.payload.first_name || response.data.payload.username || 'User');
+                if (res.status === 200) {
+                    setUsername(res.data.payload.first_name || res.data.payload.username || 'User');
                 } else {
                     toast.error("Failed to fetch user details.");
                     setUsername('User'); 
