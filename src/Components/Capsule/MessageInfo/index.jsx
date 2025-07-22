@@ -21,7 +21,7 @@ const MessageInfo = () => {
         const userId = localStorage.getItem('user_id');
         if (!userId) {
             toast.error("You need to be logged in to create a message.");
-            navigate('/authentication');
+            navigate('/auth');
             return;
         }
 

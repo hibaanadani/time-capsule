@@ -24,7 +24,7 @@ const MessageForm = () => {
 
         if (!userId || !token) {
             toast.error("You need to be logged in to create a message.");
-            navigate('/authentication');
+            navigate('/auth');
             return;
         }
 

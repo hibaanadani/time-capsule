@@ -51,6 +51,9 @@ header {
 }
 
 @media (max-width: 600px) {
+    header{
+        align-items: center;
+    }
     .header-title {
         font-size: 24px;
     }
