@@ -9,6 +9,7 @@ import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard";
 import CreateCapsule from "./Pages/CreateCapsule";
 import ReadCapsule from "./Pages/ReadCapsule";
+import CapsuleInfo from "./Pages/MessageInfo";
 
 
 const App = () =>{
@@ -21,8 +22,8 @@ return (
     <Route path="/" element={<Home/>}/>
     <Route path="/dashboard" element={<Dashboard/>}/>
     <Route path="/create-capsule" element={<CreateCapsule/>}/>
+    <Route path="/capsule-info" element={<CapsuleInfo/>}/>
     <Route path="/read-capsule" element={<ReadCapsule/>}/>
-    {/* <Route path="/message-info" element={<CapsuleInfo/>}/> */}
    </Routes>
   </BrowserRouter>
 )

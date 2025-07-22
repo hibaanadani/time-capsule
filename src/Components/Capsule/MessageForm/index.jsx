@@ -1,71 +1,111 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../Shared/Button";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import EmojiPicker from 'emoji-picker-react';
 import { Paperclip } from 'lucide-react';
 import {toast} from "react-toastify";
+import Input from "../../Shared/Input/Index";
 
+const MessageForm = () => { 
+    const navigate = useNavigate();
 
-const MessageForm =({toggle})=>{
-    const navigate= useNavigate();
+    const [content, setContent] = useState('');
+    const [mood, setMood] = useState('');
+    const [imageattachment, setImageAttachment] = useState(null);
+    const [audioattachment, setAudioAttachment] = useState(null);
+    const [emojipickerOpen, setEmojiPickerOpen] = useState(false);
 
-    const [content,setContent] =useState('');
-    const [mood,setMood] =useState('');
-    const [imageattachment,setImageAttachmnet] =useState(null);
-    const [audioattachment,setAudioAttachment] =useState(null);
-    const [emojipicker, setEmojiPicker]=useState('');
-
-    const handleClear = () => {
-        setContent('');
-        setMood('');
-        setImageAttachmnet(null);
-        setAudioAttachment(null);
-        setEmojiPicker('');
-        localStorage.removeItem('currentMessageDraft'); 
-  };
-
-    const postMessage = async() =>{
-        try{
-            const res = await axios.post("http://localhost:8000/api/add_update_message/", {
-                message: content,
-                mood:mood,
-                image:imageattachment,
-                audio:audioattachment,
-        });   
-        
-            if(res.status === 200 ){
-                toast.success("Login successful!");
-                setTimeout(() => {
-                    navigate("/message-info");
-                }, 1000); 
-                handleClear();
-            }else{
-                toast.error("message creation failed");
-            }
+    const handleImageChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setImageAttachment(e.target.files[0]);
         }
-        catch(e){
-            console.error("Login error:", e.response.data.message);
-            toast.error("an error occurred! Please try again.")
+    };
+
+    const handleAudioChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setAudioAttachment(e.target.files[0]);
         }
-    }
+    };
+
+    const handleNext = () => {
+        if (!content) {
+            toast.warn("Please write your message content.");
+            return;
+        }
+
+        const messageData = {
+            message: content,
+            mood: mood,
+            image: imageattachment,
+            audio: audioattachment,
+        };
+        navigate('/capsule-info', { state: { messageData } });
+    };
+
+    // Removed handleClear and postMessage functions as they belong to MessageInfo now
+
     function handleEmojiSelect(emojiObject) {
-      setMood(emojiObject.emoji); 
+      setMood(emojiObject.emoji);
+      setEmojiPickerOpen(false);
     }
 
-    return(
+    return (
         <div className="message-form">
             <h2 className="create-msge-title">Send Your Message Forward</h2>
-            <textarea className="msge-textarea" value={content} onChange={(e) => setContent(e.target.value)} rows={5} cols={60}>Write your letter here</textarea>
+
+<Input
+    as="textarea" 
+    name={"content"}
+    hint={"Write your message here"}
+    value={content}
+    onChangeListener={(e) => {
+        setContent(e.target.value);
+    }}
+    required={true}
+    rows={6}
+    cols={60}
+/>
+
             <Paperclip size={24} className="paper-clip-icon"/>
             <div className="input-form">
-                <input type="file" className="image-attachment" accept="image/*" />
-                <input type="file" className="audio-attachment" accept="audio/*" />
-                <EmojiPicker className="emoji-picker" onEmojiClick={handleEmojiSelect} />
+                <label htmlFor="image-upload" className="file-input-label">
+                    <input
+                        id="image-upload"
+                        type="file"
+                        className="image-attachment"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        style={{ display: 'none' }}
+                    />
+                    {imageattachment ? `Image: ${imageattachment.name}` : 'Attach Image'}
+                </label>
+
+                <label htmlFor="audio-upload" className="file-input-label">
+                    <input
+                        id="audio-upload"
+                        type="file"
+                        className="audio-attachment"
+                        accept="audio/*"
+                        capture="microphone"
+                        onChange={handleAudioChange}
+                        style={{ display: 'none' }}
+                    />
+                    {audioattachment ? `Audio: ${audioattachment.name}` : 'Attach Audio (or Record)'}
+                </label>
+                <Button
+                    text="Select Mood"
+                    onClickListener={() => setEmojiPickerOpen(!emojipickerOpen)}
+                    buttonType="secondary"
+                />
+                {emojipickerOpen && (
+                    <div className="emoji-picker-container">
+                        <EmojiPicker onEmojiClick={handleEmojiSelect} />
+                    </div>
+                )}
+                {mood && <span className="selected-mood">Mood: {mood}</span>}
             </div>
             <h3 className="senderName"> name</h3>
-            <Button text={"Finalize"} buttonType="authB" onClickListener={toggle} />
+            <Button text={"Next: Delivery Details"} buttonType="authB" onClickListener={handleNext} />
         </div>
     );
 };

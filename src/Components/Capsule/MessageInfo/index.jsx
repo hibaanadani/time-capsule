@@ -6,7 +6,7 @@ import axios from "axios";
 import Input from "../../Shared/Input/Index";
 import { toast } from "react-toastify";
 
-const MessageInfo =({toggle})=>{
+const MessageInfo =()=>{
     const navigate= useNavigate();
 
     const [revealdate,setRevealDate] =useState('');
@@ -41,7 +41,7 @@ const MessageInfo =({toggle})=>{
     };
     
     const handleToggleBack = () => {
-    toggle();
+    navigate("/create-capsule")
   };
 
     return(

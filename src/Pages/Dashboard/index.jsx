@@ -33,9 +33,12 @@ const Dashboard = () => {
         />
         
       </div>
+      <div className="messageCardsDashboard">
       <p className="dash-subtext">
        Check your opened messages here!!
       </p>
+      <MessageCard/>
+      </div>
       <Footer />
     </div>
   );
