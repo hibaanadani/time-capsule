@@ -1,19 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../Shared/Button";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import EmojiPicker from 'emoji-picker-react';
 import { Paperclip } from 'lucide-react';
 import {toast} from "react-toastify";
 import Input from "../../Shared/Input/Index";
+import axios from "axios";
 
-const MessageForm = () => { 
+const MessageForm = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [content, setContent] = useState('');
     const [mood, setMood] = useState('');
     const [imageattachment, setImageAttachment] = useState(null);
     const [audioattachment, setAudioAttachment] = useState(null);
     const [emojipickerOpen, setEmojiPickerOpen] = useState(false);
+    const [username, setUsername] = useState('');
+
+    useEffect(() => {
+        const userId = localStorage.getItem('user_id');
+        const token = localStorage.getItem('token'); 
+
+        if (!userId || !token) {
+            toast.error("You need to be logged in to create a message.");
+            navigate('/authentication');
+            return;
+        }
+
+         if (location.state && location.state.messageData) {
+            const { message, mood, image, audio } = location.state.messageData;
+            setContent(message || '');
+            setMood(mood || '');
+            setImageAttachment(image || null);
+            setAudioAttachment(audio || null);
+        }
+
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/api/users/${userId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.status === 200) {
+                    setUsername(response.data.payload.first_name || response.data.payload.username || 'User');
+                } else {
+                    toast.error("Failed to fetch user details.");
+                    setUsername('User'); 
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error.response?.data?.message || error.message);
+                toast.error("Error fetching user details.");
+                setUsername('User');
+            }
+        };
+
+        fetchUserData();
+    }, [navigate]);
 
     const handleImageChange = (e) => {
         if (e.target.files && e.target.files[0]) {
@@ -42,8 +87,6 @@ const MessageForm = () => {
         navigate('/capsule-info', { state: { messageData } });
     };
 
-    // Removed handleClear and postMessage functions as they belong to MessageInfo now
-
     function handleEmojiSelect(emojiObject) {
       setMood(emojiObject.emoji);
       setEmojiPickerOpen(false);
@@ -53,18 +96,18 @@ const MessageForm = () => {
         <div className="message-form">
             <h2 className="create-msge-title">Send Your Message Forward</h2>
 
-<Input
-    as="textarea" 
-    name={"content"}
-    hint={"Write your message here"}
-    value={content}
-    onChangeListener={(e) => {
-        setContent(e.target.value);
-    }}
-    required={true}
-    rows={6}
-    cols={60}
-/>
+            <Input
+                as="textarea"
+                name={"content"}
+                hint={"Write your message here"}
+                value={content}
+                onChangeListener={(e) => {
+                    setContent(e.target.value);
+                }}
+                required={true}
+                rows={6}
+                cols={60}
+            />
 
             <Paperclip size={24} className="paper-clip-icon"/>
             <div className="input-form">
@@ -104,7 +147,7 @@ const MessageForm = () => {
                 )}
                 {mood && <span className="selected-mood">Mood: {mood}</span>}
             </div>
-            <h3 className="senderName"> name</h3>
+            <h3 className="senderName">{username}</h3>
             <Button text={"Next: Delivery Details"} buttonType="authB" onClickListener={handleNext} />
         </div>
     );

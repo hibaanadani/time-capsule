@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./style.css";
 import MessageForm from "../../Components/Capsule/MessageForm";
 
