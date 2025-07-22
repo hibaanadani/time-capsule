@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 const OpenedMessage = () => {
     const navigate = useNavigate();
     const { messageId } = useParams();
-
     const [message, setMessage] = useState(null);
 
     useEffect(() => {
@@ -16,7 +15,7 @@ const OpenedMessage = () => {
 
         if (!token || !userId) {
             toast.error("You need to be logged in to view messages.");
-            navigate('/authentication');
+            navigate('/auth');
             return;
         }
 
@@ -74,6 +73,14 @@ const OpenedMessage = () => {
                     <span className='message-emoji'>{message.mood}</span>
                 </div>
             )}
+                <div className="message-details-section">
+                    {message.reveal_date && <p className="message-detail"><strong>Reveal Date:</strong> {new Date(message.reveal_date).toLocaleDateString()}</p>}
+                    {message.privacy && <p className="message-detail"><strong>Privacy:</strong> {message.privacy}</p>}
+                    {message.location && <p className="message-detail"><strong>Location:</strong> {message.location}</p>}
+                    {message.ipaddress && <p className="message-detail"><strong>IP Address:</strong> {message.ipaddress}</p>}
+                    {message.created_at && <p className="message-detail"><strong>Created On:</strong> {new Date(message.created_at).toLocaleDateString()}</p>}
+                </div>
+
 
             <div className="message-end">
                 <h3>{message.sender_first_name || 'Anonymous'}</h3>

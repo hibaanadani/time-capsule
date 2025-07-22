@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Button from "../../Shared/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import EmojiPicker from 'emoji-picker-react';
-import { Paperclip } from 'lucide-react';
 import {toast} from "react-toastify";
 import Input from "../../Shared/Input/Index";
 import axios from "axios";
@@ -109,7 +108,6 @@ const MessageForm = () => {
                 cols={60}
             />
 
-            <Paperclip size={24} className="paper-clip-icon"/>
             <div className="input-form">
                 <label htmlFor="image-upload" className="file-input-label">
                     <input
@@ -120,7 +118,7 @@ const MessageForm = () => {
                         onChange={handleImageChange}
                         style={{ display: 'none' }}
                     />
-                    {imageattachment ? `Image: ${imageattachment.name}` : 'Attach Image'}
+                    {imageattachment ? `Image: ${imageattachment.name}` : '📸'}
                 </label>
 
                 <label htmlFor="audio-upload" className="file-input-label">
@@ -133,12 +131,12 @@ const MessageForm = () => {
                         onChange={handleAudioChange}
                         style={{ display: 'none' }}
                     />
-                    {audioattachment ? `Audio: ${audioattachment.name}` : 'Attach Audio (or Record)'}
+                    {audioattachment ? `Audio: ${audioattachment.name}` : '🎤'}
                 </label>
                 <Button
                     text="Select Mood"
                     onClickListener={() => setEmojiPickerOpen(!emojipickerOpen)}
-                    buttonType="secondary"
+                    buttonType="notPrimary"
                 />
                 {emojipickerOpen && (
                     <div className="emoji-picker-container">
