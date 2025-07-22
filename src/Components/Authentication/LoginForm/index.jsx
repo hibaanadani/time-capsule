@@ -24,6 +24,8 @@ const LoginForm = ({ toggle}) =>{
             });
 
             if(res.status === 200 ){
+                localStorage.setItem('user_id', res.data.payload.id);
+                localStorage.setItem('token', res.data.payload.token);
                 toast.success("Login successful!");
                 setTimeout(() => {
                     navigate("/dashboard");

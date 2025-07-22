@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Button from '../../Shared/Button'; 
-import './style.css';
+import { toast } from 'react-toastify';
+
 
 const OpenedMessage = () => {
   const { id } = useParams(); // Get the message ID from the URL (e.g., /message/123)
@@ -15,14 +16,13 @@ const OpenedMessage = () => {
 
   useEffect(() => {
     const fetchMessage = async () => {
-      setLoading(true);
-      setError('');
+      // setLoading(true);
       try {
         const response = await axios.get(`/${id}`);
         if (true) {
           setMessage(response.data.message); 
         } else {
-          setError(response.data.message || 'Failed to fetch message details.');
+          toast.error(response.data.message || 'Failed to fetch message details.');
         }
       } catch (e) {
         console.error('Error fetching message:', e);

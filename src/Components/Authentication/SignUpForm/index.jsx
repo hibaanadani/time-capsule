@@ -29,6 +29,8 @@ const SignUpForm = ({ toggle }) =>{
             });
 
             if(res.status === 200 ){
+                localStorage.setItem('user_id', res.data.payload.id);
+                localStorage.setItem('token', res.data.payload.token);
                 toast.success("Signup successful! Welcome aboard.");
                 setTimeout(() => {
                     navigate("/dashboard"); 
