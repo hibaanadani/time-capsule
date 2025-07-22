@@ -19,12 +19,6 @@ const Dashboard = () => {
     }
   }, [navigate]);
 
-  const userId = localStorage.getItem('user_id');
-
-  if (!userId) {
-    return null;
-  }
-
   return (
     <div className="dash-page">
       <Header />
