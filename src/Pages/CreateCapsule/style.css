@@ -40,6 +40,7 @@
 .message-form textarea {
   width: 465px;
   height: 215px;
+  color: var(--color-red);
 }
 
 .input-form {

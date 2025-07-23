@@ -118,7 +118,7 @@ const MessageForm = () => {
                         onChange={handleImageChange}
                         style={{ display: 'none' }}
                     />
-                    {imageattachment ? `Image: ${imageattachment.name}` : '📸'}
+                    {imageattachment ? `📸: ${imageattachment.name}` : '📸'}
                 </label>
 
                 <label htmlFor="audio-upload" className="file-input-label">
@@ -131,7 +131,7 @@ const MessageForm = () => {
                         onChange={handleAudioChange}
                         style={{ display: 'none' }}
                     />
-                    {audioattachment ? `Audio: ${audioattachment.name}` : '🎤'}
+                    {audioattachment ? `🎤: ${audioattachment.name}` : '🎤'}
                 </label>
                 <Button
                     text="Select Mood"

@@ -1,14 +1,12 @@
 .message-card{
-  width: 565px;
-  height: auto;
-  max-height: 750px;
+  width: 345px;
+  height: 450px;
   border: 1px solid #6F4D38;
   box-shadow: 0 2px 5px #6f4d385d;
   background-color: var(--color-tan);
   padding: 20px;
   margin: 10px;
   text-align: center;
-  max-width: 345px;
   display: inline-block;
   overflow: hidden;
   cursor: pointer;

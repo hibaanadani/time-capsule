@@ -6,3 +6,47 @@
     justify-content: center;
     flex-direction: column;
 }
+.message-cards-section{
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+.message-cards-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background-color: var(--color-tan);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.message-cards-section h2 {
+  padding-top: 2rem;
+}
+
+.message-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-content: center; /* center the grid */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* limit max width to center content */
+  width: 100%;
+}
+
+.message-cards > * {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  height: 100%;
+}
