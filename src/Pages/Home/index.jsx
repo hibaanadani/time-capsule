@@ -11,15 +11,15 @@ import MessageCard from '../../Components/Shared/MessageCard/MessageCard.jsx';
 
 const Home = () => {
   const navigate = useNavigate();
-  const [topMessages, setTopMessages] = useState([]);
+  const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        const fetchTopMessages = async () => {
+        const fetchMessages = async () => {
             try {
                 const res= await axios.get('http://localhost:8000/api/messages'); 
 
                 if (res.status === 200 && Array.isArray(res.data.payload)) {
-                    setTopMessages(res.data.payload);
+                    setMessages(res.data.payload);
                 } else {
                     console.error('API response not as expected:', res.data);
                 }
@@ -28,10 +28,10 @@ const Home = () => {
             } 
         };
 
-        fetchTopMessages();
+        fetchMessages();
     }, []);
 
-    const publicMessages = topMessages.filter(msg => msg.privacy === 'public');
+    const publicMessages = messages.filter(msg => msg.privacy === 'public');
      const imageMessages = publicMessages.filter(msg => msg.image_url);
     const textMessages = publicMessages.filter(msg => !msg.image_url);
 
