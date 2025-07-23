@@ -15,8 +15,8 @@ import CapsuleInfo from "./Pages/MessageInfo";
 const App = () =>{
 return (
   <BrowserRouter>
-  <ToastContainer position="top-middle" autoClose={1000} hideProgressBar={true}
-    newestOnTop={true} closeOnClick rtl={true} pauseOnFocusLoss draggable pauseOnHover />  
+  <ToastContainer position="top-center" autoClose={1000} hideProgressBar={true}
+    newestOnTop={true} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />  
    <Routes>
     <Route path="/auth" element={<Auth/>}/>
     <Route path="/" element={<Home/>}/>
