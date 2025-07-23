@@ -23,3 +23,26 @@
   justify-content: center;
   margin-top: 1.5rem;
 }
+
+@media (max-width: 768px) {
+  .read-capsule-container {
+    flex-direction: column;
+    padding: 0.5rem;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .opened-message-wrapper {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .message-content {
+    font-size: 1rem;
+  }
+
+  .message-end {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+}
