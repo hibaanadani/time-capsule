@@ -93,7 +93,14 @@ const OpenedMessage = () => {
                 {message.title ? <h3 className="message-title">{message.title}</h3> : null}
                 {message.message ? <p className="message-content">{message.message}</p> : null}
 
-                {message.image !== null && message.image !== '' ? (
+                <div className="message-details-section">
+                    {message.reveal_date ? <p className="message-detail"><strong>Reveal Date:</strong> {new Date(message.reveal_date).toLocaleDateString()}</p> : null}
+                    {message.privacy ? <p className="message-detail"><strong>Privacy:</strong> {message.privacy}</p> : null}
+                    {message.location ? <p className="message-detail"><strong>Location:</strong> {message.location}</p> : null}
+                    {message.ipaddress ? <p className="message-detail"><strong>IP Address:</strong> {message.ipaddress}</p> : null}
+                </div>
+                <div className='media- details-section'>
+                       {message.image !== null && message.image !== '' ? (
                     <div className="message-attachment image-attachment">
                         <img src={message.image} alt="Attached Visual" />
                     </div>
@@ -112,12 +119,6 @@ const OpenedMessage = () => {
                         <span className='message-emoji'>{message.mood}</span>
                     </div>
                 ) : null}
-
-                <div className="message-details-section">
-                    {message.reveal_date ? <p className="message-detail"><strong>Reveal Date:</strong> {new Date(message.reveal_date).toLocaleDateString()}</p> : null}
-                    {message.privacy ? <p className="message-detail"><strong>Privacy:</strong> {message.privacy}</p> : null}
-                    {message.location ? <p className="message-detail"><strong>Location:</strong> {message.location}</p> : null}
-                    {message.ipaddress ? <p className="message-detail"><strong>IP Address:</strong> {message.ipaddress}</p> : null}
                 </div>
 
                 <div className="bottom-right-container">
