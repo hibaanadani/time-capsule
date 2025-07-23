@@ -22,7 +22,7 @@
     width: 100%;
     align-self: center;
     justify-self: center;
-    margin: 0 auto;
+    margin: 0 auto 0 30em;
 }
 
 .auth-title {
