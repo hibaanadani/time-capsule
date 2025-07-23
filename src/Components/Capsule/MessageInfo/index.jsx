@@ -123,7 +123,7 @@ const MessageInfo = () => {
             <label htmlFor="color-input">Color:</label>
             <Input className="color-box" name="color" hint="Select a color" type="color" value={color} onChangeListener={(e) => setColor(e.target.value)} required={true} />
             <Input name="gpsLocation" hint="Enter approximate location (e.g., city)" type="text" value={gpsLocation} onChangeListener={(e) => setGpsLocation(e.target.value)} />
-            <Input name="ipAddress" hint="Enter IP Address" type="text" value={ipAddress} onChangeListener={(e) => setIpAddress(e.target.value)} />
+            <Input name="ipAddress" hint="Enter IP Address: 168.4.109.160" type="text" value={ipAddress} onChangeListener={(e) => setIpAddress(e.target.value)} />
 
             <Button text="Send Message" onClickListener={handleSubmit} buttonType="authB"/>
             <Button text={"← Back"} onClickListener={handleToggleBack} buttonType="notPrimary"/>

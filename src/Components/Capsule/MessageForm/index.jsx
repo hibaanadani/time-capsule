@@ -60,8 +60,26 @@ const MessageForm = () => {
     },[navigate, location.state]);
 
     const handleImageChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            setImageAttachment(e.target.files[0]);
+        const file = e.target.files[0];
+        if (file) {
+            if (!file.type.startsWith('image/')) {
+                toast.error("Please select an image file.");
+                setImageAttachment(null);
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImageAttachment(reader.result); // reader.result is the Base64 string
+            };
+            reader.onerror = (error) => {
+                console.error("Error reading file:", error);
+                toast.error("Failed to read image file.");
+                setImageAttachment(null);
+            };
+            reader.readAsDataURL(file); // Convert the file to Base64
+        } else {
+            setImageAttachment(null);
         }
     };
 
@@ -70,7 +88,6 @@ const MessageForm = () => {
             setAudioAttachment(e.target.files[0]);
         }
     };
-
     const handleNext = () => {
         if (!content) {
             toast.warn("Please write your message content.");
@@ -118,7 +135,12 @@ const MessageForm = () => {
                         onChange={handleImageChange}
                         style={{ display: 'none' }}
                     />
-                    {imageattachment ? `📸: ${imageattachment.name}` : '📸'}
+                {imageattachment
+                    ? (typeof imageattachment === 'string'
+                        ? '📸: Image Ready' // It's a Base64 string
+                        : (imageattachment.name ? `📸: ${imageattachment.name}` : '📸: File selected') 
+                        )
+                    : '📸'}
                 </label>
 
                 <label htmlFor="audio-upload" className="file-input-label">

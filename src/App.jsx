@@ -23,7 +23,7 @@ return (
     <Route path="/dashboard" element={<Dashboard/>}/>
     <Route path="/create-capsule" element={<CreateCapsule/>}/>
     <Route path="/capsule-info" element={<CapsuleInfo/>}/>
-    <Route path="/read-capsule" element={<ReadCapsule/>}/>
+    <Route path="/read-capsule/:messageId" element={<ReadCapsule/>}/>
    </Routes>
   </BrowserRouter>
 )

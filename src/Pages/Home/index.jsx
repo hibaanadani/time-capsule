@@ -33,11 +33,6 @@ const Home = () => {
 
     const publicMessages = topMessages.filter(msg => msg.privacy === 'public');
 
-    if (publicMessages.length === 0) return
-     <div className="home-section">
-      <p>No top messages to display yet.</p>
-      </div>;
-
 
   return (
     <div className="home-page">

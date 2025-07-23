@@ -1,0 +1,25 @@
+.read-capsule-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-image: url('../../../public/images/messageBackground.png');
+  background-size: 100% 100% !important;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:100% 100%;
+}
+
+.opened-message-wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.message-end {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
