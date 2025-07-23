@@ -135,12 +135,8 @@ const Dashboard = () => {
                     <MessageCard
                       key={message.id}
                       messageId={message.id}
+                      messageTitle={message.title}
                       messageText={message.message}
-                      mood={message.mood}
-                      revealDate={message.reveal_date}
-                      privacy={message.privacy}
-                      imageUrl={message.image_url}
-                      audioUrl={message.audio_url}
                     />
                   ))
                 ) : (
