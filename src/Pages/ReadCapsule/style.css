@@ -24,8 +24,8 @@
 
 .bottom-right-container{
  position: absolute;
-  bottom: 1em;
-  right: -20em; 
+  bottom: 3em;
+  right: 3em; 
   display: flex;
   flex-direction: column;
   align-items: flex-end;

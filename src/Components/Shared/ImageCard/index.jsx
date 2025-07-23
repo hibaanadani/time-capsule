@@ -6,7 +6,7 @@ const ImageCard = ({ messageId, imageUrl }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/opened-message/${messageId}`); 
+        navigate(`/read-capsule/${messageId}`); 
     };
 
   return (

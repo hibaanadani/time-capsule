@@ -6,6 +6,46 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.image-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.image-cards > * {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 1rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .image-cards .image-card {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .image-cards .image-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
 .message-cards-section{
     position: relative;
     align-items: center;
@@ -13,7 +53,7 @@
     justify-content: center;
     flex-direction: column;
     overflow: visible;
-  }
+}
 
 .message-cards-section::before {
     content: "";
@@ -28,25 +68,25 @@
 }
 
 .message-cards-section h2 {
-  padding-top: 2rem;
+    padding-top: 2rem;
 }
 
 .message-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  justify-content: center; /* center the grid */
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px; /* limit max width to center content */
-  width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .message-cards > * {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
 }
