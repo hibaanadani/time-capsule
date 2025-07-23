@@ -32,6 +32,7 @@
     overflow: hidden;
 }
 
+
 @media (max-width: 768px) {
     .image-cards .image-card {
         flex: 0 0 calc(50% - 20px);
