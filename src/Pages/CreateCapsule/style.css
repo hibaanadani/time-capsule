@@ -11,3 +11,31 @@
     background-position:100% 100%;
     background-size:cover;
 }
+
+.message-form {
+  position: relative;
+  padding-bottom: 120px;
+  margin: 0 auto;
+}
+
+.bottom-right-container {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.message-form textarea {
+  width: 465px;
+  height: 215px;
+}
+
+.input-form {
+  margin: 1.5rem auto 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}

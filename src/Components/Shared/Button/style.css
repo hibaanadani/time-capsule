@@ -11,6 +11,7 @@
     align-items: center;
     white-space: nowrap;
     min-width: 100px;
+    height: 40px;
 }
 .notPrimary{
     background-color: var(--button-not-primary-bg);

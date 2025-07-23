@@ -145,8 +145,10 @@ const MessageForm = () => {
                 )}
                 {mood && <span className="selected-mood">Mood: {mood}</span>}
             </div>
-            <h3 className="senderName">{username}</h3>
-            <Button text={"Next: Delivery Details"} buttonType="authB" onClickListener={handleNext} />
+            <div className="bottom-right-container">
+                <h3 className="senderName">{username}</h3>
+                <Button text={"Next"} buttonType="authB" onClickListener={handleNext} />
+            </div>
         </div>
     );
 };
