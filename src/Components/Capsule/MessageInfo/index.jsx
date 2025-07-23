@@ -10,6 +10,7 @@ const MessageInfo = () => {
     const location = useLocation();
 
     const { messageData } = location.state || {};
+    const [title, setTitle] = useState(messageData?.title || '');
     const [revealdate, setRevealDate] = useState('');
     const [privacy, setPrivacy] = useState('public');
     const [surprisemode, setSurpriseMode] = useState(false);
@@ -45,7 +46,6 @@ const MessageInfo = () => {
             return;
         }
         const formData = new FormData();
-
         formData.append('message', messageData.message);
         formData.append('mood', messageData.mood);
 
@@ -55,7 +55,7 @@ const MessageInfo = () => {
         if (messageData.audio) {
             formData.append('audio', messageData.audio);
         }
-
+        formData.append('title', title);
         formData.append('reveal_date', revealdate);
         formData.append('privacy', privacy);
         formData.append('surprise_mode', surprisemode ? 1 : 0);
@@ -97,6 +97,8 @@ const MessageInfo = () => {
 
             {messageData?.message && <p>Message Preview: {messageData.message.substring(0, 100)}...</p>}
 
+            <Input name="title" hint="Enter title" type="text" value={title} onChangeListener={(e) => setTitle(e.target.value)} required={true} />
+
             <Input name="revealDate" hint="ex:26/12/2026" type="date" value={revealdate} onChangeListener={(e) => setRevealDate(e.target.value)} required={true} />
 
             <div className="input-group">
@@ -115,12 +117,13 @@ const MessageInfo = () => {
                     checked={surprisemode}
                     onChange={(e) => setSurpriseMode(e.target.checked)}
                 />
-                <label htmlFor="surpriseMode">Surprise Mode (Revealed only by trigger)</label>
+                <label htmlFor="surpriseMode">Surprise Mode</label>
             </div>
 
-            <Input name="color" hint="Select a color" type="color" value={color} onChangeListener={(e) => setColor(e.target.value)} required={true} />
+            <label htmlFor="color-input">Color:</label>
+            <Input className="color-box" name="color" hint="Select a color" type="color" value={color} onChangeListener={(e) => setColor(e.target.value)} required={true} />
             <Input name="gpsLocation" hint="Enter approximate location (e.g., city)" type="text" value={gpsLocation} onChangeListener={(e) => setGpsLocation(e.target.value)} />
-            <Input name="ipAddress" hint="Enter IP Address (optional)" type="text" value={ipAddress} onChangeListener={(e) => setIpAddress(e.target.value)} />
+            <Input name="ipAddress" hint="Enter IP Address" type="text" value={ipAddress} onChangeListener={(e) => setIpAddress(e.target.value)} />
 
             <Button text="Send Message" onClickListener={handleSubmit} buttonType="authB"/>
             <Button text={"← Back"} onClickListener={handleToggleBack} buttonType="notPrimary"/>

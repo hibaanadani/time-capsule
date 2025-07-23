@@ -11,3 +11,15 @@
     background-position:100% 100%;
     background-size:cover;
 }
+
+/* .color-box {
+  border: 1px solid var(--color-dark-blue);
+  padding: 0.25rem;
+  width: 50px;
+  height: 35px;
+  background-color: white !important;
+  cursor: pointer;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+} */
