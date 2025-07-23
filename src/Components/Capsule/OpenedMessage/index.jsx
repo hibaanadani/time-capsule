@@ -8,14 +8,21 @@ const OpenedMessage = () => {
     const navigate = useNavigate();
     const { messageId } = useParams();
     const [message, setMessage] = useState(null);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        const userId = localStorage.getItem('user_id');
+        const loggedInUserId = localStorage.getItem('user_id');
 
-        if (!token || !userId) {
+        if (!token || !loggedInUserId) {
             toast.error("You need to be logged in to view messages.");
             navigate('/auth');
+            return;
+        }
+
+        if (!messageId) {
+            toast.warn("No message specified to open.");
+            navigate('/dashboard');
             return;
         }
 
@@ -27,16 +34,18 @@ const OpenedMessage = () => {
                     }
                 });
 
-                if (res.status === 200) {
+                if (res.status === 200 && res.data.payload) {
                     setMessage(res.data.payload);
                     toast.success("Message loaded successfully!");
                 } else {
-                    toast.error("Failed to load message: " + (res.data.message || "No data received."));
+                    const messageError = res.data.message || "No message data received.";
+                    toast.error("Failed to load message: " + messageError);
                     navigate('/dashboard');
                 }
             } catch (e) {
-                console.error("Error fetching message:", e.response?.data?.message || e.message);
-                toast.error("Error loading message. " + (e.response?.data?.message || "Please try again."));
+                const apiError = e.response?.data?.message || e.message || "Please try again.";
+                console.error("Error fetching message:", apiError);
+                toast.error("Error loading message. " + apiError);
                 navigate('/dashboard');
             }
         };
@@ -44,13 +53,44 @@ const OpenedMessage = () => {
         fetchMessage();
     }, [messageId, navigate]);
 
+    useEffect(() => {
+        if (message && message.user_id) {
+            const token = localStorage.getItem('token');
+
+            const fetchUserData = async () => {
+                try {
+                    const userRes = await axios.get(`http://localhost:8000/api/users/${message.user_id}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    if (userRes.status === 200 && userRes.data.payload) {
+                        setUser(userRes.data.payload);
+                    } else {
+                        toast.error("Failed to fetch sender details.");
+                        setUser({ first_name: 'Unknown User' });
+                    }
+                } catch (userError) {
+                    console.error("Error fetching user data:", userError.response?.data?.message || userError.message);
+                    toast.error("Error fetching sender details.");
+                    setUser({ first_name: 'Unknown User' });
+                }
+            };
+            fetchUserData();
+        } else if (message && !message.user_id) {
+            setUser({ first_name: 'Anonymous' });
+        }
+    }, [message]);
+
     if (!message) {
-        return <p>Loading message...</p>;
+        return <p>Loading full message...</p>;
     }
 
     return (
         <div className="opened-message-container">
             <div className="opened-message-wrapper">
+                {message.title ? <h3 className="message-title">{message.title}</h3> : null}
                 {message.message ? <p className="message-content">{message.message}</p> : null}
 
                 {message.image !== null && message.image !== '' ? (
@@ -80,8 +120,8 @@ const OpenedMessage = () => {
                     {message.ipaddress ? <p className="message-detail"><strong>IP Address:</strong> {message.ipaddress}</p> : null}
                 </div>
 
-                <div className="message-end">
-                    <h3>{message.sender_first_name}</h3>
+                <div className="bottom-right-container">
+                    <h3>{user ? (user.first_name || 'Anonymous') : 'Loading Sender...'}</h3>
                     <Button
                         text="Back to Dashboard"
                         onClickListener={() => navigate('/dashboard')}
@@ -92,5 +132,4 @@ const OpenedMessage = () => {
         </div>
     );
 };
-
 export default OpenedMessage;

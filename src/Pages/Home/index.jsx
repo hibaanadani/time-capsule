@@ -32,6 +32,8 @@ const Home = () => {
     }, []);
 
     const publicMessages = topMessages.filter(msg => msg.privacy === 'public');
+     const imageMessages = publicMessages.filter(msg => msg.image_url);
+    const textMessages = publicMessages.filter(msg => !msg.image_url);
 
 
   return (
@@ -49,7 +51,7 @@ const Home = () => {
           <div className="image-cards-section">
             <h2>Creating a Long Lasting Memory</h2>
             <div className="image-cards">
-                {publicMessages.filter(msg => msg.image_url).slice(0, 3).map(message => (
+                {imageMessages.slice(0, 3).map(message => (
                     <ImageCard 
                         key={message.id} 
                         messageId={message.id}
@@ -72,7 +74,7 @@ const Home = () => {
           <div className="message-cards-section">
             <h2>Top Interacted With Messages</h2>
             <div className="message-cards">
-                {publicMessages.filter(msg => !msg.image_url).slice(0, 9).map(message => (
+                {textMessages.slice(0, 9).map(message => (
                     <MessageCard 
                         key={message.id}
                         messageId={message.id}
