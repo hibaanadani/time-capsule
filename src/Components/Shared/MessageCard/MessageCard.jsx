@@ -1,31 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './MessageCard.css'; // Make sure this CSS file exists
+import './style.css';
 
-const MessageCard = ({ messageId, messageText, mood, imageUrl, audioUrl, revealDate, privacy }) => {
+const MessageCard = ({ messageId, messageTitle, messageText }) => {
     const navigate = useNavigate();
-
-    const formattedRevealDate = revealDate ? new Date(revealDate).toLocaleDateString() : 'N/A';
-
     const handleCardClick = () => {
-        // Navigate to the OpenedMessage route using the messageId
-        navigate(`/opened-message/${messageId}`);
+        navigate(`/read-capsule/${messageId}`);
     };
 
+    const safeMessageText = messageText || ''; 
     const snippetLength = 100;
-    const messageSnippet = messageText.length > snippetLength
-        ? messageText.substring(0, snippetLength) + '...'
-        : messageText;
+    const messageSnippet = safeMessageText.length > snippetLength
+        ? safeMessageText.substring(0, snippetLength) + '...'
+        : safeMessageText;
 
     return (
         <div className="message-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+            <h3 className="card-title">{messageTitle}</h3>
             <p className="card-text">{messageSnippet}</p>
-            {mood && <p className="card-detail">Mood: {mood}</p>}
-            {imageUrl && <p className="card-detail">Image attached <span role="img" aria-label="camera">📸</span></p>}
-            {audioUrl && <p className="card-detail">Audio attached <span role="img" aria-label="microphone">🎤</span></p>}
-
-            <p className="card-detail">Reveal Date: {formattedRevealDate}</p>
-            <p className="card-detail">Privacy: {privacy}</p>
         </div>
     );
 };

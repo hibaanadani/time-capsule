@@ -9,18 +9,35 @@ const Header = () => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        setIsLoggedIn(!!token);
-    });
+        useEffect(() => {
+        const checkLoginStatus = () => {
+            const token = localStorage.getItem('token');
+            setIsLoggedIn(!!token); 
+        };
+        checkLoginStatus();
+
+        const handleStorageChange = (event) => {
+            if (event.key === 'token' || event.key === null) {
+                checkLoginStatus();
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        // Cleanup function: remove the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []); 
 
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user_id');
         setIsLoggedIn(false);
         toast.info("You have been logged out.");
-        navigate('/'); 
+        navigate('/');
     };
+
 
     return (
         <header>

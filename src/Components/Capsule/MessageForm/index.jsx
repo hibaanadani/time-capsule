@@ -57,7 +57,7 @@ const MessageForm = () => {
         };
 
         fetchUserData();
-    }, [navigate]);
+    },[navigate, location.state]);
 
     const handleImageChange = (e) => {
         if (e.target.files && e.target.files[0]) {
