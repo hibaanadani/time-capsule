@@ -9,7 +9,16 @@
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-position:100% 100%;
-    background-size:cover;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  z-index: 1000;
+  top: 50px;
+  right: -250px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: white;
 }
 
 .message-form {
@@ -20,8 +29,8 @@
 
 .bottom-right-container {
   position: absolute;
-  bottom: 20px;
-  right: 0;
+  bottom: 1em;
+  right: -20em; 
   display: flex;
   flex-direction: column;
   align-items: flex-end;
