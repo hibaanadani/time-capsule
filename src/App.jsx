@@ -1,32 +1,31 @@
 import "./Styles/utilities.css";
 import "./Styles/colors.css";
 import "./Styles/index.css";
-import "./Styles/App.css";
 
+import { BrowserRouter ,Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import Auth from "./Pages/Authentication";
+import Home from "./Pages/Home";
+import Dashboard from "./Pages/Dashboard";
+import CreateCapsule from "./Pages/CreateCapsule";
+import ReadCapsule from "./Pages/ReadCapsule";
+import CapsuleInfo from "./Pages/MessageInfo";
 
-import logo from './logo.svg';
-import Header from './Components/Header.jsx';
-import Footer from './Components/Footer.jsx';
-import MessageCard from './Components/MessageCard.jsx';
-import ImageCard from './Components/ImageCard.jsx';
-import HeroSection from './Components/HeroSection.jsx';
-import UserGreeting from './Components/UserGreeting.jsx';
 
 const App = () =>{
-return <div className="App"></div>
-};
-
-function App() {
-  return( 
-    <>
-  <Header/>
-  <UserGreeting isLoggedIn={true} username="HibaAnadani"/>
-  <HeroSection/>
-  <ImageCard/>
-  <MessageCard/>
-  <Footer/>
-  </>
+return (
+  <BrowserRouter>
+  <ToastContainer position="top-center" autoClose={1000} hideProgressBar={true}
+    newestOnTop={true} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />  
+   <Routes>
+    <Route path="/auth" element={<Auth/>}/>
+    <Route path="/" element={<Home/>}/>
+    <Route path="/dashboard" element={<Dashboard/>}/>
+    <Route path="/create-capsule" element={<CreateCapsule/>}/>
+    <Route path="/capsule-info" element={<CapsuleInfo/>}/>
+    <Route path="/read-capsule/:messageId" element={<ReadCapsule/>}/>
+   </Routes>
+  </BrowserRouter>
 )
-}
-
+};
 export default App;

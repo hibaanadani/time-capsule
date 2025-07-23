@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import "./style.css";
-import LoginForm from "../../Components/Authntication/LoginForm";
-import SignUpForm from "../../Components/Authntication/SignUpForm";
-
+import LoginForm from "../../Components/Authentication/LoginForm";
+import SignUpForm from "../../Components/Authentication/SignUpForm";
 
 const Auth = () => {
-     const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true);
 
   const switchForm = () => {
     setIsLogin(!isLogin);
@@ -19,7 +18,8 @@ const Auth = () => {
         ) : (
           <SignUpForm toggle={switchForm} />
         )}
-      </div>
+         </div>
+        <div className="authImage-container"><img src="/images/stamp.png "alt="stamp" className="authImage"/></div>
     </div>
   );
 };

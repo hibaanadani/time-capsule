@@ -1,0 +1,51 @@
+.create-capsule {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url('../../../public/images/messageBackground.png');
+    background-size: 100% 100% !important;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:100% 100%;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  z-index: 1000;
+  top: 50px;
+  right: -250px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: white;
+}
+
+.message-form {
+  position: relative;
+  padding-bottom: 120px;
+  margin: 0 auto;
+}
+
+.bottom-right-container {
+  position: absolute;
+  bottom: 1em;
+  right: -20em; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.message-form textarea {
+  width: 465px;
+  height: 215px;
+  color: var(--color-red);
+}
+
+.input-form {
+  margin: 1.5rem auto 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}

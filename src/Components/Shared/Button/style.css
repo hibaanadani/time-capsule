@@ -1,21 +1,48 @@
-.notPrimary{
-  background-color: #D5B893;
-  border: 1px solid #6F4D38;
-  color: #6F4D38;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 10px;
-  text-align: center;
-  align-items: center;
+.base-button {
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    min-width: 100px;
+    height: 40px;
 }
-.createTC{
-  background-color: #6F4D38;
-  border: 1px solid #D5B893;
-  color: #D5B893;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 10px;
-  text-align: center;
+.notPrimary{
+    background-color: var(--button-not-primary-bg);
+    border: 1px solid var(--button-non-primary-border); 
+    color: var(--button-non-primary-text);
+}
+.notPrimary:hover {
+    background-color: var(--color-brown);
+    color: var(--color-tan);
+    border-color: var(--color-tan); 
+}
+
+.primary {
+    background-color: var(--button-primary-bg);
+    border: 1px solid var(--button-primary-text);
+    color: var(--button-primary-text); 
+}
+
+.primary:hover {
+    background-color: var(--color-tan); 
+    color: var(--color-brown); 
+    border-color: var(--color-brown);
+}
+
+.authB {
+    background-color: var(--button-auth-bg); 
+    color: var(--button-auth-text);
+    border: 1px solid var(--button-auth-border); 
+}
+.authB:hover {
+    background-color:var(--button-auth-bg);
+    color: var(--color-brown);
+    border-color: var(--color-brown); 
 }

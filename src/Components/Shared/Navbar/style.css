@@ -1,0 +1,31 @@
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.8em;
+}
+
+.nav-link-item {
+    display: block;
+    color: var(--text-link-nav);
+    font-size: 16px;
+    text-align: center;
+    padding: 0.5rem 0.8rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.nav-link-item:hover,
+.nav-link-item.active {
+    color: var(--color-brown);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+}
