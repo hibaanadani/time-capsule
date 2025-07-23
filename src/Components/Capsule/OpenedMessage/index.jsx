@@ -53,13 +53,13 @@ const OpenedMessage = () => {
             <div className="opened-message-wrapper">
                 {message.message ? <p className="message-content">{message.message}</p> : null}
 
-                {message.image ? (
+                {message.image !== null && message.image !== '' ? (
                     <div className="message-attachment image-attachment">
                         <img src={message.image} alt="Attached Visual" />
                     </div>
                 ) : null}
 
-                {message.audio ? (
+                {message.audio !== null && message.audio !== '' ? (
                     <div className="message-attachment audio-attachment">
                         <audio controls src={message.audio}>
                             Your browser does not support the audio element.
@@ -67,7 +67,7 @@ const OpenedMessage = () => {
                     </div>
                 ) : null}
 
-                {message.mood ? (
+                {message.mood !== null && message.mood !== '' ? (
                     <div className="message-attachment emoji-attachment">
                         <span className='message-emoji'>{message.mood}</span>
                     </div>
