@@ -84,8 +84,8 @@ const Dashboard = () => {
     fetchMessages();
   }, [navigate]);
 
-  const imageMessages = userMessages.filter(msg => msg.image_url);
-  const textMessages = userMessages.filter(msg => !msg.image_url);
+  const imageMessages = userMessages.filter(msg => msg.image);
+  const textMessages = userMessages.filter(msg => !msg.image);
 
   return (
     <div className="dash-page">
