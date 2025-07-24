@@ -15,7 +15,7 @@ const Home = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const res = await axios.get('http://localhost:8000/api/public_opened'); 
+                const res = await axios.get('http://localhost:8000/api/v0.1/public_opened'); 
 
                 if (res.status === 200 && Array.isArray(res.data.payload)) {
                     setMessages(res.data.payload);

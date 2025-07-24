@@ -37,7 +37,7 @@ const MessageForm = () => {
 
         const fetchUserData = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/api/users/${userId}`, {
+                const res = await axios.get(`http://localhost:8000/api/v0.1/users/${userId}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -70,14 +70,14 @@ const MessageForm = () => {
 
             const reader = new FileReader();
             reader.onloadend = () => {
-                setImageAttachment(reader.result); // reader.result is the Base64 string
+                setImageAttachment(reader.result);
             };
             reader.onerror = (error) => {
                 console.error("Error reading file:", error);
                 toast.error("Failed to read image file.");
                 setImageAttachment(null);
             };
-            reader.readAsDataURL(file); // Convert the file to Base64
+            reader.readAsDataURL(file);
         } else {
             setImageAttachment(null);
         }
@@ -137,7 +137,7 @@ const MessageForm = () => {
                     />
                 {imageattachment
                     ? (typeof imageattachment === 'string'
-                        ? '📸: Image Ready' // It's a Base64 string
+                        ? '📸: Image Ready'
                         : (imageattachment.name ? `📸: ${imageattachment.name}` : '📸: File selected') 
                         )
                     : '📸'}

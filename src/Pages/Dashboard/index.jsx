@@ -27,7 +27,7 @@ const Dashboard = () => {
 
     const fetchUserData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/users/${userId}`, {
+        const res = await axios.get(`http://localhost:8000/api/v0.1/users/${userId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -59,7 +59,7 @@ const Dashboard = () => {
 
     const fetchMessages = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/get_messages_by_userid/${userId}`, {
+        const res = await axios.get(`http://localhost:8000/api/v0.1/get_messages_by_userid/${userId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

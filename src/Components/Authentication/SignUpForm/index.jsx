@@ -20,7 +20,7 @@ const SignUpForm = ({ toggle }) =>{
             toast.warn("Please fill in all fields to sign up.");
             return;
         }try{
-            const res= await axios.post("http://localhost:8000/api/register", {
+            const res= await axios.post("http://localhost:8000/api/v0.1/register", {
                 first_name:firstname,
                 last_name: lastname,
                 username: username,
@@ -28,7 +28,7 @@ const SignUpForm = ({ toggle }) =>{
                 password:password,
             });
 
-            if (res.status === 200) {
+            if (res.status === 200  &&  res.status === 201) {
                 localStorage.setItem('token', res.data.payload.token);
                 localStorage.setItem('user_id', res.data.payload.id);
                 toast.success("Signup successful! Welcome aboard.");
