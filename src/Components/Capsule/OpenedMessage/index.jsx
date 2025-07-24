@@ -28,7 +28,7 @@ const OpenedMessage = () => {
 
         const fetchMessage = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/api/v0.1/messages/${messageId}`, {
+                const res = await axios.get(`http://localhost:8000/api/v0.1/user/messages/${messageId}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -59,7 +59,7 @@ const OpenedMessage = () => {
 
             const fetchUserData = async () => {
                 try {
-                    const userRes = await axios.get(`http://localhost:8000/api/v0.1/users/${message.user_id}`, {
+                    const userRes = await axios.get(`http://localhost:8000/api/v0.1/user/users/${message.user_id}`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }

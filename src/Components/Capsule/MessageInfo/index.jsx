@@ -65,7 +65,7 @@ const MessageInfo = () => {
         formData.append('user_id', userId); 
 
         try {
-            const res = await axios.post('http://localhost:8000/api/v0.1/add_message', formData, {
+            const res = await axios.post('http://localhost:8000/api/v0.1/user/add_message', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`

@@ -37,7 +37,7 @@ const MessageForm = () => {
 
         const fetchUserData = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/api/v0.1/users/${userId}`, {
+                const res = await axios.get(`http://localhost:8000/api/v0.1/user/users/${userId}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
