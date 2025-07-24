@@ -20,7 +20,7 @@ const SignUpForm = ({ toggle }) =>{
             toast.warn("Please fill in all fields to sign up.");
             return;
         }try{
-            const res= await axios.post("http://localhost:8000/api/v0.1/register", {
+            const res= await axios.post("http://localhost:8000/api/guest/register", {
                 first_name:firstname,
                 last_name: lastname,
                 username: username,
