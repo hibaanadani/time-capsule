@@ -30,7 +30,7 @@ const Home = () => {
         fetchMessages();
     }, []);
 
-    const imageMessages = messages.filter(msg => msg.image).slice(0, 3);; 
+    const imageMessages = messages.filter(msg => msg.image).slice(0,3);
     const textMessages = messages.filter(msg => !msg.image);
 
     return (
