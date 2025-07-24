@@ -78,8 +78,7 @@ const Dashboard = () => {
           localStorage.removeItem('user_id');
           navigate('/auth');
         }
-      } finally {
-      }
+      } 
     };
 
     fetchMessages();
@@ -117,8 +116,7 @@ const Dashboard = () => {
                     <ImageCard
                       key={message.id}
                       messageId={message.id}
-                      imageUrl={message.image_url}
-                      messageText={message.message}
+                      imageUrl={message.image} 
                     />
                   ))
                 ) : (

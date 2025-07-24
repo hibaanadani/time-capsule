@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 2em; 
     max-width: 670px;
+    width: 670px;
 }
 .notPrimary{
     max-width: 200px;
@@ -30,7 +31,7 @@ p{
     font-family: 'Inria Serif', Arial, Helvetica, sans-serif;
     font-size: 24px;
 }
-img{
+.section-image{
     width: 535px;
     height: 440px;
     object-fit: cover;

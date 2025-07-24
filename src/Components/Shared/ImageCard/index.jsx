@@ -14,7 +14,7 @@ const ImageCard = ({ messageId, imageUrl }) => {
         <img 
           src={imageUrl} 
           alt={`Message image ${messageId}`} 
-          className="image-card__image" 
+          className="image-card-image" 
         />
     </div>
   );
