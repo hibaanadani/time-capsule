@@ -28,7 +28,7 @@ const SignUpForm = ({ toggle }) =>{
                 password:password,
             });
 
-            if (res.status === 200  &&  res.status === 201) {
+            if (res.status === 200  ||  res.status === 201) {
                 localStorage.setItem('token', res.data.payload.token);
                 localStorage.setItem('user_id', res.data.payload.id);
                 toast.success("Signup successful! Welcome aboard.");
