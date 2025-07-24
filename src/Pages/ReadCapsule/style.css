@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.bottom-right-container{
+.end-container{
  position: absolute;
   bottom: 3em;
   right: 3em; 

@@ -121,7 +121,7 @@ const OpenedMessage = () => {
                 ) : null}
                 </div>
 
-                <div className="bottom-right-container">
+                <div className="end-container">
                     <h3>{user ? (user.first_name || 'Anonymous') : 'Loading Sender...'}</h3>
                     <Button
                         text="Back to Dashboard"
