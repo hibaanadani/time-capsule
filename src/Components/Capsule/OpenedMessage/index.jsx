@@ -83,9 +83,37 @@ const OpenedMessage = () => {
         }
     }, [message]);
 
+    const handleDelete = async () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            toast.error("You need to be logged in to delete messages.");
+            return;
+        }
+        try {
+            const res = await axios.post(`http://localhost:8000/api/v0.1/user/delete_message/${messageId}`, {}, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            if (res.status === 200) {
+                toast.success("Message deleted successfully.");
+                navigate('/dashboard');
+            } else {
+                toast.error("Failed to delete message.");
+            }
+        } catch (error) {
+            const errorMessage = error.response?.data?.message || error.message || "An unknown error occurred.";
+            toast.error(`Error deleting message: ${errorMessage}`);
+        }
+    };
+
     if (!message) {
         return <p>Loading full message...</p>;
     }
+
+    const loggedInUserId = localStorage.getItem('user_id');
+    console.log("Debug: loggedInUserId from localStorage:", loggedInUserId);
+    console.log("Debug: message.user_id:", message.user_id);
 
     return (
         <div className="opened-message-container">
@@ -123,11 +151,18 @@ const OpenedMessage = () => {
 
                 <div className="end-container">
                     <h3>{user ? (user.first_name || 'Anonymous') : 'Loading Sender...'}</h3>
+                <Button
+                    text="Back to Dashboard"
+                    onClickListener={() => navigate('/dashboard')}
+                    buttonType="authB"
+                />
+                {loggedInUserId === message.user_id && (
                     <Button
-                        text="Back to Dashboard"
-                        onClickListener={() => navigate('/dashboard')}
-                        buttonType="authB"
+                        text="Delete Message"
+                        onClickListener={handleDelete}
+                        buttonType="primary"
                     />
+                )}
                 </div>
             </div>
         </div>
