@@ -156,7 +156,7 @@ const OpenedMessage = () => {
                     onClickListener={() => navigate('/dashboard')}
                     buttonType="authB"
                 />
-                {loggedInUserId === message.user_id && (
+                {loggedInUserId == message.user_id && (
                     <Button
                         text="Delete Message"
                         onClickListener={handleDelete}
